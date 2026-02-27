@@ -9,7 +9,8 @@ var fishcount: int = 0
 #@onready var badthing = preload(res://characters/badmoving.tscn)
 @export var badthing: PackedScene
 var lastY = 400
-#var positions = [Vector2(-100, 200), Vector2(-100, 450), Vector2(-100, 600), Vector2(1700, 200), Vector2(1700, 450), Vector2(1700, 600)]
+var positions = [Vector2(-100, 400), Vector2(-100, 650), Vector2(-100, 800), 
+Vector2(1700, 400), Vector2(1700, 650), Vector2(1700, 800)]
 
 func _ready() -> void:
 	retry()
@@ -19,10 +20,10 @@ func _process(delta: float) -> void:
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):
+			fish[i].position.y -= 50 * delta
 			if fish[i].position.x > 1800 or fish[i].position.x < -200:
 				fish[i].queue_free()
 				fishcount -= 1
-	$fish.position.y -= 50 * delta
 
 func retry():
 	get_tree().paused = false
@@ -43,18 +44,19 @@ func play_cg():
 	player.stop = false
 
 func spawnthings():
-	var r = randi_range(0, 1)
+	var r = randi_range(0, 5)
 	var newthing = badthing.instantiate()
 	$fish.add_child(newthing)
 	fishcount += 1
-	if r == 0:
+	newthing.position = positions[r]
+	if r < 3:
 		newthing.direction = 1
-		newthing.position = Vector2(-100, lastY) 
-		lastY =+ randi_range(150, 300)
+#		newthing.position = Vector2(-100, lastY) 
+#		lastY =+ randi_range(150, 300)
 	else:
 		newthing.direction = -1
-		newthing.position = Vector2(1700, lastY) 
-		lastY =+ randi_range(300, 800)
+#		newthing.position = Vector2(1700, lastY) 
+#		lastY =+ randi_range(600, 800)
 
 func startspawning():
 	while game:

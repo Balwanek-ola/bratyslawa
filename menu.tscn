@@ -105,6 +105,7 @@ tile_set = SubResource("TileSet_ouk20")
 libraries/ = SubResource("AnimationLibrary_ytr4m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1721676123]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=694175343]
 position = Vector2(-6.1040115, 466)
