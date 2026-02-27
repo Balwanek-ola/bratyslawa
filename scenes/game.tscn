@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1h4q28du6pot" path="res://characters/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b6fpvqixsg52q" path="res://scenes/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://brsxes1krquas" path="res://characters/badmovingnode.tscn" id="2_lnu2h"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -42,6 +43,7 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=2142069916]
 script = ExtResource("1_yqjtg")
+badthing = ExtResource("2_lnu2h")
 
 [node name="Player" parent="." unique_id=1226060005 instance=ExtResource("1_uwrxv")]
 position = Vector2(800, -100)
