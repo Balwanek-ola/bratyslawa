@@ -1,11 +1,110 @@
-[gd_scene format=3 uid="uid://ch6vb5sso3an7"]
+[gd_scene format=4 uid="uid://ch6vb5sso3an7"]
 
-[node name="Node2D" type="Node2D" unique_id=434100593]
+[ext_resource type="Texture2D" uid="uid://bm0ygw4hsv4aw" path="res://Art/kenney_space-shooter-redux/Backgrounds/darkPurple.png" id="1_lti8b"]
 
-[node name="Label" type="Label" parent="." unique_id=697063872]
-visible = false
-offset_left = 107.0
-offset_top = 114.0
-offset_right = 172.0
-offset_bottom = 137.0
-text = "GOWNO"
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouk20"]
+texture = ExtResource("1_lti8b")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mae5d"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_ouk20")
+
+[sub_resource type="Animation" id="Animation_4hy44"]
+resource_name = "Bg loop animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scenes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 901)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scenes3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -936), Vector2(0, 6.1035156e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_ytr4m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scenes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scenes3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -936)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l48gv"]
+_data = {
+&"Bg loop animation": SubResource("Animation_4hy44"),
+&"RESET": SubResource("Animation_ytr4m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lti8b"]
+size = Vector2(22, 919)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouk20"]
+size = Vector2(22, 919)
+
+[node name="Bg" type="Node2D" unique_id=434100593]
+
+[node name="Scenes" type="Node2D" parent="." unique_id=1990572127]
+scale = Vector2(1.2741503, 1.227027)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Scenes" unique_id=1008621080]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_mae5d")
+
+[node name="Scenes3" type="Node2D" parent="." unique_id=2052972362]
+position = Vector2(0, -936)
+scale = Vector2(1.2741503, 1.227027)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Scenes3" unique_id=28922027]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_mae5d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1537449089]
+libraries/ = SubResource("AnimationLibrary_l48gv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1405386978]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=15634451]
+position = Vector2(1, 449.5)
+shape = SubResource("RectangleShape2D_lti8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D" unique_id=907249271]
+position = Vector2(1602, 3.5)
+shape = SubResource("RectangleShape2D_ouk20")
