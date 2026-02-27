@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ch6vb5sso3an7"]
 
 [ext_resource type="Texture2D" uid="uid://bm0ygw4hsv4aw" path="res://Art/kenney_space-shooter-redux/Backgrounds/darkPurple.png" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://b3hu3rm7weepu" path="res://bg.gd" id="1_ouk20"]
+[ext_resource type="Script" path="res://bg.gd" id="1_ouk20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lti8b"]
 texture = ExtResource("1_lti8b")

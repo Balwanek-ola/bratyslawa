@@ -8,8 +8,17 @@ func _physics_process(delta: float) -> void:
 	if stop == false:
 		var input_vector := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		velocity = input_vector * SPEED
+#		if input_vector.y == 1:
+#			velocity*= 1.5
+#		elif input_vector.y -- -1:
+#			velocity*= 0.5
 		move_and_slide()
 
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	pass # Replace with function body.
+func hit():
+	die()
+	
+func die():
+	var gamescene = get_parent()
+	if gamescene != null and gamescene.name == "Game":
+		gamescene.die()
+	
