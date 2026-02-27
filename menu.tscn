@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://ch6vb5sso3an7"]
 
 [ext_resource type="Texture2D" uid="uid://bm0ygw4hsv4aw" path="res://Art/kenney_space-shooter-redux/Backgrounds/darkPurple.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://b3hu3rm7weepu" path="res://bg.gd" id="1_ouk20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lti8b"]
 texture = ExtResource("1_lti8b")
@@ -39,8 +40,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_4hy44"]
-resource_name = "bg loop animation"
-length = 2.0
+resource_name = "loop"
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,10 +50,10 @@ tracks/0/path = NodePath("Scene 1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 900)]
+"values": [Vector2(0, 0), Vector2(0, -1026)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -61,21 +62,31 @@ tracks/1/path = NodePath("Scene 2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0009999999, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 900)]
+"values": [Vector2(0, 2023), Vector2(0, 1027)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ytr4m"]
 _data = {
 &"RESET": SubResource("Animation_mae5d"),
-&"bg loop animation": SubResource("Animation_4hy44")
+&"loop": SubResource("Animation_4hy44")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lti8b"]
+size = Vector2(13.0482855, 56.630135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouk20"]
+size = Vector2(13.0482855, 56.630135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mae5d"]
+size = Vector2(338.16156, 3.534133)
 
 [node name="Main" type="Node2D" unique_id=495378431]
 
 [node name="bg" type="Node2D" parent="." unique_id=827343726]
+script = ExtResource("1_ouk20")
 
 [node name="Scene 1" type="Sprite2D" parent="bg" unique_id=412276376]
 
@@ -92,3 +103,29 @@ tile_set = SubResource("TileSet_ouk20")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg" unique_id=1073415251]
 libraries/ = SubResource("AnimationLibrary_ytr4m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1721676123]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=694175343]
+position = Vector2(-6.1040115, 466)
+rotation = -3.1415925
+scale = Vector2(4.9208016, -16.362808)
+shape = SubResource("RectangleShape2D_lti8b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1079458218]
+position = Vector2(1609.9999, 455)
+rotation = -3.1415925
+scale = Vector2(4.9208016, -16.362808)
+shape = SubResource("RectangleShape2D_ouk20")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2019437772]
+position = Vector2(801.987, -9.914296)
+rotation = -3.1415925
+scale = Vector2(4.9208016, -16.362808)
+shape = SubResource("RectangleShape2D_mae5d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=2086344]
+position = Vector2(802, 905)
+rotation = -3.1415925
+scale = Vector2(4.9208016, -16.362808)
+shape = SubResource("RectangleShape2D_mae5d")
