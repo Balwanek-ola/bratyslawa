@@ -8,7 +8,7 @@ size = Vector2(101, 101)
 
 [sub_resource type="Gradient" id="Gradient_3eadt"]
 offsets = PackedFloat32Array(0.018072288, 0.7108434)
-colors = PackedColorArray(1, 1, 0, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 0, 0.5176471, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tory2"]
 gradient = SubResource("Gradient_3eadt")
@@ -31,4 +31,5 @@ shape = SubResource("RectangleShape2D_3eadt")
 [node name="Light" type="Node2D" parent="." unique_id=649636491]
 
 [node name="lightsprite" type="Sprite2D" parent="Light" unique_id=1001195290]
+scale = Vector2(3, 3)
 texture = SubResource("GradientTexture2D_tory2")
