@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c2miky07u2hrd"]
+
+[ext_resource type="Script" uid="uid://q2px8o4vvxgu" path="res://characters/badmoving.gd" id="1_3i8sm"]
+[ext_resource type="Texture2D" uid="uid://deglgq2puim6c" path="res://icon.svg" id="1_hof85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i8sm"]
+
+[node name="badmoving" type="CharacterBody2D" unique_id=1311409280]
+script = ExtResource("1_3i8sm")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=158890740]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_hof85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1860034560]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_3i8sm")
