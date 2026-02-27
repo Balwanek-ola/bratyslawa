@@ -1,5 +1,8 @@
 extends Node2D
 
+var game = true
+
+
 @onready var player = $Player
 
 #@onready var badthing = preload(res://characters/badmoving.tscn)
@@ -9,7 +12,7 @@ Vector2(1610, 200), Vector2(1610, 450), Vector2(1610, 600)]
 
 func _ready() -> void:
 	play_cg()
-	spawnthings()
+	startspawning()
 
 
 func _process(delta: float) -> void:
@@ -30,3 +33,8 @@ func spawnthings():
 		newthing.direction = 1
 	else:
 		newthing.direction = -1
+
+func startspawning():
+	while game:
+		spawnthings()
+		await get_tree().create_timer(2).timeout

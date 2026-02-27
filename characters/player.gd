@@ -10,6 +10,8 @@ func _physics_process(delta: float) -> void:
 		velocity = input_vector * SPEED
 		move_and_slide()
 
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	pass # Replace with function body.
+func hit():
+	die()
+	
+func die():
+	print("died")
