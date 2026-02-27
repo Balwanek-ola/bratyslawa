@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://cffj6syljm13m"]
+
+[ext_resource type="Texture2D" uid="uid://debii7vy8utpd" path="res://Art/our art/Sprite-0002.png" id="1_5b7ti"]
+[ext_resource type="Script" uid="uid://k8vkxsy3xnlo" path="res://main_menu.gd" id="1_dvdtt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvdtt"]
+texture = ExtResource("1_5b7ti")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yr4w"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b7ti"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvdtt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5qic"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Main Menu" type="Node2D" unique_id=683268924]
+script = ExtResource("1_dvdtt")
+
+[node name="Panel" type="Panel" parent="." unique_id=1712826083]
+custom_minimum_size = Vector2(1600, 900)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dvdtt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=399303743]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 184.0
+offset_right = 1560.0
+offset_bottom = 1084.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0563871, 1.0637479)
+
+[node name="Button_Manager" type="Control" parent="VBoxContainer" unique_id=1639222783]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 2
+
+[node name="Start" type="Button" parent="VBoxContainer/Button_Manager" unique_id=447924699]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.8237
+offset_top = -143.5364
+offset_right = 334.05396
+offset_bottom = -49.236786
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 63
+theme_override_styles/normal = SubResource("StyleBoxFlat_7yr4w")
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer/Button_Manager" unique_id=1271865118]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.93048
+offset_top = -42.94864
+offset_right = 334.05396
+offset_bottom = 52.05136
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 63
+theme_override_styles/normal = SubResource("StyleBoxFlat_5b7ti")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_dvdtt")
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer/Button_Manager" unique_id=183320249]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.87714
+offset_top = 59.519226
+offset_right = 332.16077
+offset_bottom = 149.51923
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 63
+theme_override_styles/normal = SubResource("StyleBoxFlat_i5qic")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Button_Manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Manager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Manager/Quit" to="." method="_on_quit_pressed"]
