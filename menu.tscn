@@ -1,11 +1,3 @@
 [gd_scene format=3 uid="uid://ch6vb5sso3an7"]
 
 [node name="Node2D" type="Node2D" unique_id=434100593]
-
-[node name="Label" type="Label" parent="." unique_id=697063872]
-visible = false
-offset_left = 107.0
-offset_top = 114.0
-offset_right = 172.0
-offset_bottom = 137.0
-text = "GOWNO"
