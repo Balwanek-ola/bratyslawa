@@ -14,6 +14,14 @@ config/name="Bratyslawa"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Art/": "pink",
+"res://Bg/": "green",
+"res://Scripts/": "yellow"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
