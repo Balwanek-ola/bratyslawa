@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var game
+@export var lightnode: PointLight2D
 
 const SPEED = 500.0
 var stop = false

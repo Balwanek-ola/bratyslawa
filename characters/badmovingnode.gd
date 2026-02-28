@@ -2,9 +2,11 @@ extends Node2D
 class_name enemy
 
 @export var SPEED = 2
+@export var speedUP = 5
 var stop = false
 var direction: int
 var velocity
+var velocityUp
 var inAbility: bool = false
 var dead = false
 
@@ -13,9 +15,11 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if stop == false and direction != null:
-		velocity = SPEED * Vector2(direction, 0)
+		velocity = SPEED * direction
+		velocityUp = speedUP * -1
 		self.scale.x = direction
-		self.position += velocity
+		self.position.x += velocity
+		self.position.y += velocityUp
 
 func die():
 	stop = true

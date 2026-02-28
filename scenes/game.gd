@@ -15,6 +15,7 @@ var maxFish = 20
 @export var swordfish: PackedScene
 @export var lightthing: PackedScene
 @export var sillydih: PackedScene
+@export var mareczek: PackedScene
 
 var currentfih1: PackedScene
 var currentfih2: PackedScene
@@ -167,6 +168,7 @@ func depthcount():
 				$fader.play("fade1")
 				played1 = true
 				currentfih1 = sillydih
+				currentfih2 = mareczek
 				newlayer(40)
 		elif depth > 249 and depth < 500:
 			if not played2:

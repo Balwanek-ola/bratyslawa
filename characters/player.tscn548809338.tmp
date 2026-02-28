@@ -47,6 +47,14 @@ radius = 30.0
 offsets = PackedFloat32Array(0.37349397, 0.72289157)
 colors = PackedColorArray(1, 1, 1, 0.39607844, 1, 1, 1, 0)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x0jl3"]
+gradient = SubResource("Gradient_3eadt")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tory2"]
 gradient = SubResource("Gradient_3eadt")
 width = 200
@@ -55,10 +63,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[node name="Player" type="CharacterBody2D" unique_id=1226060005 node_paths=PackedStringArray("lightnode")]
+[node name="Player" type="CharacterBody2D" unique_id=1226060005]
 collision_mask = 14
 script = ExtResource("1_3eadt")
-lightnode = NodePath("")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=688367245]
 scale = Vector2(4, 4)
@@ -77,6 +84,11 @@ z_index = -1
 [node name="lightsprite" type="Sprite2D" parent="Light" unique_id=1001195290]
 scale = Vector2(3, 3)
 texture = ExtResource("3_tory2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=720113968]
+z_index = 1
+texture = SubResource("GradientTexture2D_x0jl3")
+texture_scale = 2.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=559747164]
 z_index = 1

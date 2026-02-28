@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmukjkcek4whs" path="res://characters/swordfish.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://curdf2xxpxj7l" path="res://characters/light.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dw5rumw661unl" path="res://characters/sillydih.tscn" id="5_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b1ns7cwtwckuo" path="res://characters/mareczek.tscn" id="6_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://bgyb4vwyv6yyx" path="res://Art/bg/map 2.png" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c1pk64mkvi1p" path="res://Art/our art/ramka.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
@@ -84,10 +85,10 @@ tracks/1/path = NodePath("../Node2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_u5sy4"]
@@ -105,6 +106,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.47557914, 0.74516505, 0.8770015, 1), Color(0.2492634, 0.5091985, 0.63031024, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.3137255)]
+}
 
 [sub_resource type="Animation" id="Animation_gee14"]
 resource_name = "fade2"
@@ -120,6 +133,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.2492634, 0.5091985, 0.63031024, 1), Color(0.15123564, 0.33930898, 0.42677674, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.3137255), Color(1, 1, 1, 0.6666667)]
 }
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
@@ -137,6 +162,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.15294118, 0.34117648, 0.42745098, 1), Color(0.14901961, 0.20784314, 0.34117648, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6666667), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
 _data = {
@@ -149,6 +186,18 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_p57ef"]
 radius = 192.00261
 
+[sub_resource type="Gradient" id="Gradient_3eadt"]
+offsets = PackedFloat32Array(0.37349397, 0.72289157)
+colors = PackedColorArray(1, 1, 1, 0.39607844, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vtaks"]
+gradient = SubResource("Gradient_3eadt")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
 font_size = 39
 
@@ -158,6 +207,7 @@ badthing = ExtResource("2_lnu2h")
 swordfish = ExtResource("3_p57ef")
 lightthing = ExtResource("5_iywne")
 sillydih = ExtResource("5_vtaks")
+mareczek = ExtResource("6_kvpfn")
 
 [node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
 
@@ -172,6 +222,7 @@ offset_bottom = 900.0
 color = Color(0.4745098, 0.74509805, 0.8784314, 1)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=340513173]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -150)
 
 [node name="shade2" type="TextureRect" parent="Node2D" unique_id=1813107754]
@@ -190,8 +241,9 @@ texture = SubResource("GradientTexture2D_kvpfn")
 root_node = NodePath("../entry")
 libraries/ = SubResource("AnimationLibrary_vtaks")
 
-[node name="Player" parent="." unique_id=1226060005 instance=ExtResource("1_uwrxv")]
+[node name="Player" parent="." unique_id=1226060005 node_paths=PackedStringArray("lightnode") instance=ExtResource("1_uwrxv")]
 position = Vector2(800, -100)
+lightnode = NodePath("PointLight2D3")
 
 [node name="ability" type="Area2D" parent="Player" unique_id=845598553]
 collision_mask = 2
@@ -199,6 +251,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ability" unique_id=2003128287]
 shape = SubResource("CircleShape2D_p57ef")
 debug_color = Color(0.6133603, 0.36003596, 1, 0.41960785)
+
+[node name="PointLight2D3" type="PointLight2D" parent="Player" unique_id=1264058737]
+z_index = 1
+texture = SubResource("GradientTexture2D_vtaks")
+texture_scale = 2.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1979460724]
 
