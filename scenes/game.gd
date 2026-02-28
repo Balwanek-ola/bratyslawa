@@ -115,13 +115,13 @@ func spawn_light():
 	var r = randi_range(0, 3)
 	match r:
 		0:
-			newlight.position = Vector2(100, 1000)
-		1:
 			newlight.position = Vector2(200, 1000)
+		1:
+			newlight.position = Vector2(600, 1000)
 		2:
-			newlight.position = Vector2(1400, 1000)
+			newlight.position = Vector2(1000, 1000)
 		3:
-			newlight.position = Vector2(1500, 1000)
+			newlight.position = Vector2(1400, 1000)
 
 func startlighting():
 	while game:
