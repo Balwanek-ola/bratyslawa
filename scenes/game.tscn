@@ -51,6 +51,18 @@ _data = {
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vtaks"]
 blend_mode = 3
 
+[sub_resource type="Gradient" id="Gradient_vtaks"]
+offsets = PackedFloat32Array(0, 0.3253012, 0.76506025)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.047058824, 0, 0, 0, 0.74509805)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kvpfn"]
+gradient = SubResource("Gradient_vtaks")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.015)
+
 [sub_resource type="Animation" id="Animation_p57ef"]
 length = 0.001
 tracks/0/type = "value"
@@ -64,6 +76,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.4745098, 0.74509805, 0.8784314, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_u5sy4"]
@@ -140,18 +164,27 @@ sillydih = ExtResource("5_vtaks")
 [node name="entry" type="AnimationPlayer" parent="." unique_id=609823631]
 libraries/ = SubResource("AnimationLibrary_lnu2h")
 
-[node name="light" type="Node2D" parent="." unique_id=751370533]
-
-[node name="fish" type="Node2D" parent="." unique_id=1301284396]
-
-[node name="sword" type="Node2D" parent="." unique_id=806000318]
-
 [node name="shade" type="ColorRect" parent="." unique_id=1753139240]
 material = SubResource("CanvasItemMaterial_vtaks")
 custom_minimum_size = Vector2(1600, 900)
 offset_right = 1600.0
 offset_bottom = 900.0
 color = Color(0.4745098, 0.74509805, 0.8784314, 1)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=340513173]
+position = Vector2(0, -150)
+
+[node name="shade2" type="TextureRect" parent="Node2D" unique_id=1813107754]
+custom_minimum_size = Vector2(1600, 1200)
+offset_right = 1600.0
+offset_bottom = 1200.0
+texture = SubResource("GradientTexture2D_kvpfn")
+
+[node name="light" type="Node2D" parent="." unique_id=751370533]
+
+[node name="fish" type="Node2D" parent="." unique_id=1301284396]
+
+[node name="sword" type="Node2D" parent="." unique_id=806000318]
 
 [node name="fader" type="AnimationPlayer" parent="." unique_id=288750501]
 root_node = NodePath("../entry")
