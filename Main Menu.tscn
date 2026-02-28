@@ -3,16 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://debii7vy8utpd" path="res://Art/our art/Sprite-0002.png" id="1_5b7ti"]
 [ext_resource type="Script" uid="uid://k8vkxsy3xnlo" path="res://main_menu.gd" id="1_dvdtt"]
 [ext_resource type="Script" uid="uid://cncqubwp1vgn8" path="res://audio_control.gd" id="3_i5qic"]
+[ext_resource type="Texture2D" uid="uid://d3tuodaa6ol74" path="res://Art/our art/start.png" id="3_wlsky"]
 [ext_resource type="Script" uid="uid://du6tegmes5p0e" path="res://fullscreen_control.gd" id="4_12kdf"]
+[ext_resource type="Texture2D" uid="uid://brnfpwm5qksvm" path="res://Art/our art/settings.png" id="4_ht6vt"]
+[ext_resource type="Texture2D" uid="uid://bxk7deycv0psr" path="res://Art/our art/exit.png" id="5_bcalf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvdtt"]
 texture = ExtResource("1_5b7ti")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yr4w"]
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b7ti"]
 corner_radius_top_left = 16
@@ -69,59 +66,74 @@ scale = Vector2(1.0563871, 1.0637479)
 custom_minimum_size = Vector2(1600, 900)
 layout_mode = 2
 
-[node name="Start" type="Button" parent="Mainbuttons/Button_Manager" unique_id=447924699]
+[node name="Start" type="TextureButton" parent="Mainbuttons/Button_Manager" unique_id=494674097]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -288.8237
-offset_top = -143.5364
-offset_right = 334.05396
-offset_bottom = -49.236786
+offset_left = -244.33246
+offset_top = -524.2657
+offset_right = -180.33246
+offset_bottom = -460.2657
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 63
-theme_override_styles/normal = SubResource("StyleBoxFlat_7yr4w")
-text = "Start"
+scale = Vector2(8.878311, 7.508557)
+texture_normal = ExtResource("3_wlsky")
 
-[node name="Options" type="Button" parent="Mainbuttons/Button_Manager" unique_id=1271865118]
+[node name="Options" type="TextureButton" parent="Mainbuttons/Button_Manager" unique_id=1103167139]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -286.93048
-offset_top = -42.94864
-offset_right = 334.05396
-offset_bottom = 52.05136
+offset_left = 106.86456
+offset_top = -286.4274
+offset_right = 170.86456
+offset_bottom = -222.4274
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.943391, 7.6988425)
+texture_normal = ExtResource("4_ht6vt")
+
+[node name="Quit" type="TextureButton" parent="Mainbuttons/Button_Manager" unique_id=1813298655]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -563.3443
+offset_top = -118.15445
+offset_right = -499.3443
+offset_bottom = -54.15445
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.947662, 7.9078584)
+texture_normal = ExtResource("5_bcalf")
+
+[node name="Tutorial" type="Button" parent="Mainbuttons/Button_Manager" unique_id=342353515]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -596.4761
+offset_top = -211.22165
+offset_right = 24.5083
+offset_bottom = -116.22165
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 63
 theme_override_styles/normal = SubResource("StyleBoxFlat_5b7ti")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_dvdtt")
-text = "Options"
-
-[node name="Quit" type="Button" parent="Mainbuttons/Button_Manager" unique_id=183320249]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -287.87714
-offset_top = 59.519226
-offset_right = 332.16077
-offset_bottom = 149.51923
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 63
-theme_override_styles/normal = SubResource("StyleBoxFlat_i5qic")
-text = "Quit"
+text = "Tutorial"
 
 [node name="Options" type="Panel" parent="." unique_id=1166316612]
+visible = false
 offset_left = 434.0
 offset_top = 51.0
 offset_right = 1221.0
@@ -183,9 +195,35 @@ autoplay = true
 max_polyphony = 6
 bus = &"Music"
 
+[node name="Tutorial2" type="Panel" parent="." unique_id=1205030900]
+offset_left = 523.0
+offset_top = 100.0
+offset_right = 1126.0
+offset_bottom = 770.0
+
+[node name="Button" type="TextureButton" parent="Tutorial2" unique_id=1779938873]
+layout_mode = 0
+offset_left = 49.99997
+offset_top = 332.0
+offset_right = 113.99997
+offset_bottom = 396.0
+scale = Vector2(8.116408, 8.744263)
+texture_normal = ExtResource("5_bcalf")
+
+[node name="Label" type="Label" parent="Tutorial2" unique_id=1546856641]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 240.0
+offset_right = 546.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 42
+text = "*insert tutorial*"
+
 [connection signal="pressed" from="Mainbuttons/Button_Manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Mainbuttons/Button_Manager/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Mainbuttons/Button_Manager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Mainbuttons/Button_Manager/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
 [connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="Tutorial2/Button" to="." method="_on_button_pressed"]
