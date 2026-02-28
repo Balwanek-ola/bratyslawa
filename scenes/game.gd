@@ -9,7 +9,6 @@ var costl = 4
 var maxFish = 20
 
 @onready var player = $Player
-
 #@onready var badthing = preload(res://characters/badmoving.tscn)
 @export var badthing: PackedScene
 @export var swordfish: PackedScene
@@ -26,6 +25,7 @@ var positions: Array
 func _ready() -> void:
 	generate_pos()
 	retry()
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -213,3 +213,5 @@ func ability():
 			if fish[i].inAbility:
 				fish[i].die()
 				fishcount -= 1
+
+		
