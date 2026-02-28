@@ -176,3 +176,17 @@ func lightcount():
 func _on_back_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Main Menu.tscn")
+
+func ability():
+	var fish = $fish.get_children()
+	if fish != null:
+		for i in range(fish.size()):
+			if fish[i].inAbility:
+				fish[i].queue_free()
+				fishcount -= 1
+	fish = $sword.get_children()
+	if fish != null:
+		for i in range(fish.size()):
+			if fish[i].inAbility:
+				fish[i].queue_free()
+				fishcount -= 1

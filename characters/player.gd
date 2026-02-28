@@ -9,6 +9,10 @@ func _ready() -> void:
 	$Icon.play("idle")
 	game = get_parent()
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		game.ability()
+
 func _physics_process(delta: float) -> void:
 	var input_vector:= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if stop == false:
@@ -35,8 +39,15 @@ func die():
 	var gamescene = get_parent()
 	if gamescene != null and gamescene.name == "Game":
 		gamescene.die()
-	
+
 
 
 func _on_ability_area_entered(area: Area2D) -> void:
-	pass
+	if area.name == "enemy":
+		area.get_parent().inAbility = true
+	
+
+
+func _on_ability_area_exited(area: Area2D) -> void:
+	if area.name == "enemy":
+		area.get_parent().inAbility = false
