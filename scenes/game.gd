@@ -101,6 +101,9 @@ func startlighting():
 		await get_tree().create_timer(5).timeout
 
 func die():
+	if depth > SaveLoad.high_score:
+		SaveLoad.high_score = depth
+		SaveLoad._save()
 	$Death.visible = true
 	get_tree().paused = true
 	game = false
