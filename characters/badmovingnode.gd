@@ -11,6 +11,7 @@ var direction: int
 var velocity
 var velocityUp
 var inAbility: bool = false
+var dead = false
 
 func _ready() -> void:
 	$Icon.play("idle")
@@ -25,16 +26,15 @@ func _physics_process(delta: float) -> void:
 
 func die():
 	stop = true
-	print("DIE START pos=", position)
+	dead = true
 	animationplayer.play("die")
-	await get_tree().create_timer(0.2).timeout
-	print("PO 0.2s pos=", position)
-#	await get_tree().create_timer(1.2).timeout
-#	self.queue_free()
+	if animationplayer.is_playing():
+		await animationplayer.animation_finished
+	self.queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and not dead:
 		body.hit()
 
 
