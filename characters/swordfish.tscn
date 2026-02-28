@@ -61,11 +61,9 @@ _data = {
 &"die": ExtResource("3_55qnh")
 }
 
-[node name="badmovingnode" type="Node2D" unique_id=679656428 node_paths=PackedStringArray("animationplayer")]
+[node name="badmovingnode" type="Node2D" unique_id=679656428]
 script = ExtResource("1_70pkq")
-animationplayer = NodePath("AnimationPlayer")
 SPEED = 7
-speedUP = 2
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=9474732]
 scale = Vector2(4, 4)

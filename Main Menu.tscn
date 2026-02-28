@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://du6tegmes5p0e" path="res://fullscreen_control.gd" id="4_12kdf"]
 [ext_resource type="Texture2D" uid="uid://gqnu3p7w3s8o" path="res://Art/our art/drive-download-20260228T091033Z-1-001/startclick.png" id="4_buhl0"]
 [ext_resource type="Texture2D" uid="uid://cub4414hdydme" path="res://Art/our art/drive-download-20260228T091033Z-1-001/starhovert.png" id="5_0q8yv"]
-[ext_resource type="Texture2D" uid="uid://cfqp67spqnpmd" path="res://Art/our art/przycisk 1 exit.png" id="5_u78o4"]
 [ext_resource type="AudioStream" uid="uid://wuo5e00tngsq" path="res://Art/our art/confirmation_003.ogg" id="5_whf7w"]
 [ext_resource type="Texture2D" uid="uid://bdkmqrfb3ru5y" path="res://Art/our art/tutorial11.png" id="6_whf7w"]
 [ext_resource type="Script" uid="uid://cncqubwp1vgn8" path="res://audio_control.gd" id="8_4gws7"]
@@ -124,10 +123,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.02313
-offset_top = -141.65619
-offset_right = -239.02313
-offset_bottom = -127.65619
+offset_left = -303.9697
+offset_top = -149.17679
+offset_right = -239.96973
+offset_bottom = -135.17679
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.943391, 7.6988425)
@@ -153,7 +152,7 @@ offset_bottom = 112.06213
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.947662, 7.9078584)
-texture_normal = ExtResource("5_u78o4")
+texture_normal = ExtResource("13_cq47v")
 texture_pressed = ExtResource("14_cq47v")
 texture_hover = ExtResource("15_7c0qk")
 
@@ -168,10 +167,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -301.12973
-offset_top = -22.266998
-offset_right = -234.86615
-offset_bottom = -2.5254517
+offset_left = -301.12985
+offset_top = -25.08728
+offset_right = -234.86627
+offset_bottom = -5.3457336
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.88122, 7.996525)
@@ -194,11 +193,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Options" type="Panel" parent="." unique_id=1166316612]
-visible = false
 offset_left = 364.0
-offset_top = 62.0
+offset_top = 22.0
 offset_right = 1151.0
-offset_bottom = 880.0
+offset_bottom = 840.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_gteid")
 
 [node name="Label" type="Label" parent="Options" unique_id=2074205032]
@@ -206,14 +204,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -476.0
-offset_top = 69.0
-offset_right = 104.0
-offset_bottom = 134.0
+offset_left = -502.0
+offset_top = 89.0
+offset_right = 78.0
+offset_bottom = 154.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(0.8039216, 0, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("18_d8rbn")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 58
 text = "Options "
 
 [node name="Back" type="TextureButton" parent="Options" unique_id=104928140]
@@ -223,14 +221,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -195.5
-offset_top = 294.0
-offset_right = -131.5
-offset_bottom = 308.0
+offset_left = -225.50003
+offset_top = 248.0
+offset_right = -151.22543
+offset_bottom = 267.91577
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.8260217, 5.5734634)
-texture_normal = ExtResource("5_u78o4")
+texture_normal = ExtResource("13_cq47v")
+texture_pressed = ExtResource("14_cq47v")
+texture_hover = ExtResource("15_7c0qk")
+stretch_mode = 0
 
 [node name="AudioControl" type="HSlider" parent="Options" unique_id=1463308437]
 layout_mode = 0
@@ -252,6 +253,7 @@ offset_top = 399.0
 offset_right = 511.00964
 offset_bottom = 447.0
 scale = Vector2(1.3505052, 1.4165586)
+theme_override_fonts/font = ExtResource("22_50c28")
 theme_override_font_sizes/font_size = 29
 button_pressed = true
 text = "Fullscreen"
@@ -306,49 +308,70 @@ max_polyphony = 6
 bus = &"Music"
 
 [node name="Tutorial2" type="Panel" parent="." unique_id=1205030900]
-visible = false
-offset_left = 363.0
-offset_top = 67.0
-offset_right = 966.0
-offset_bottom = 737.0
+offset_left = 364.0
+offset_top = 22.0
+offset_right = 965.5237
+offset_bottom = 670.8681
 scale = Vector2(1.3083442, 1.2606568)
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_whf7w")
 
 [node name="Button" type="TextureButton" parent="Tutorial2" unique_id=1779938873]
 layout_mode = 0
 offset_left = 128.40656
-offset_top = 538.6081
+offset_top = 521.1568
 offset_right = 192.40656
-offset_bottom = 602.6081
+offset_bottom = 585.538
 scale = Vector2(6.053319, 6.2424736)
 texture_normal = ExtResource("13_cq47v")
 texture_pressed = ExtResource("14_cq47v")
 texture_hover = ExtResource("15_7c0qk")
 
 [node name="Label" type="Label" parent="Tutorial2" unique_id=1546856641]
-layout_mode = 0
-offset_left = 195.66714
-offset_top = 303.01663
-offset_right = 636.6672
-offset_bottom = 431.0166
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.4066
+offset_top = 70.598114
+offset_right = 107.859924
+offset_bottom = 374.69836
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.6548131, 0.6286614)
-theme_override_font_sizes/font_size = 42
-text = "*insert tutorial*"
+theme_override_fonts/font = ExtResource("22_50c28")
+theme_override_font_sizes/font_size = 49
+text = "Avoid the other fish! 
+Use WASD to escape!
+Besides other fish, you’ll
+ encounter other dangers
+ to avoid.
+The deeper you go, the less
+ light breaks through the surface. 
+Bright light scares the other fish. 
+Eat the bits to recharge the glow inside you, and use it to your advantage.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
 
 [node name="sfx" type="AudioStreamPlayer" parent="." unique_id=796825489]
 stream = SubResource("AudioStreamOggVorbis_6viy2")
 bus = &"SFX"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=525473489]
-offset_left = 946.0
-offset_top = 517.0
+visible = false
+offset_left = 847.0
+offset_top = 507.0
 offset_right = 1519.0
 offset_bottom = 864.0
 color = Color(0.8392157, 0.90588236, 0.9882353, 0.54901963)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1481902743]
-offset_left = 946.0
-offset_top = 527.0
+visible = false
+offset_left = 847.0
+offset_top = 529.0
 offset_right = 1540.0
 offset_bottom = 857.0
 texture = ExtResource("24_nn1g5")

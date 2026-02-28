@@ -136,13 +136,11 @@ libraries/ = SubResource("AnimationLibrary_vtaks")
 
 [node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
 modulate = Color(1, 1, 1, 1)
-z_index = -10
 
 [node name="Player" parent="." unique_id=1226060005 instance=ExtResource("1_uwrxv")]
 position = Vector2(800, -100)
 
 [node name="ability" type="Area2D" parent="Player" unique_id=845598553]
-z_index = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ability" unique_id=2003128287]
