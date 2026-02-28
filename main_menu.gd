@@ -1,7 +1,11 @@
 extends Node2D
 
+@onready var mainbuttons: VBoxContainer = $Mainbuttons
+@onready var options: Panel = $Options
 
-
+func _ready():
+	mainbuttons.visible = true
+	options.visible = false
 
 
 func _on_start_pressed() -> void:
@@ -9,7 +13,8 @@ func _on_start_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	print("working 2")
+	mainbuttons.visible = false
+	options.visible = true 
 
 
 func _on_quit_pressed() -> void:
