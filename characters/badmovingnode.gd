@@ -4,7 +4,7 @@ class_name enemy
 @export var SPEED = 2
 @export var speedUP = 5
 var stop = false
-var direction: int
+var direction: int = 1
 var velocity
 var velocityUp
 var inAbility: bool = false
