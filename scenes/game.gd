@@ -141,17 +141,29 @@ func die():
 func _on_retry_pressed() -> void:
 	retry()
 
+var played1 = false
+var played2 = false
+var played3 = false
+
 func depthcount():
 	while game:
 		if depth < 100:
 			maxFish = 20
 		elif depth > 99 and depth < 250:
 			maxFish = 40
+			if not played1:
+				$fader.play("fade1")
+				played1 = true
 		elif depth > 249 and depth < 500:
 			maxFish = 60
+			if not played2:
+				$fader.play("fade2")
+				played2 = true
 		elif depth > 499 and depth < 800:
 			maxFish = 80
-				
+			if not played3:
+				$fader.play("fade3")
+				played3 = true
 		await get_tree().create_timer(0.3).timeout
 		depth += 1
 		$UI/VBoxContainer/Label.text = "depth: %sm" %depth

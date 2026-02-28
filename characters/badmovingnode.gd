@@ -1,13 +1,13 @@
 extends Node2D
-
+class_name enemy
 
 const SPEED = 2
 var stop = false
 var direction: int
 var velocity
+var inAbility: bool = false
 
 func _ready() -> void:
-	$Icon2.play("idle")
 	$Icon.play("idle")
 	
 func _physics_process(delta: float) -> void:

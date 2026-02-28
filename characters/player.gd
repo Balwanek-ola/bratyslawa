@@ -36,3 +36,7 @@ func die():
 	if gamescene != null and gamescene.name == "Game":
 		gamescene.die()
 	
+
+
+func _on_ability_area_entered(area: Area2D) -> void:
+	pass
