@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):
-			fish[i].position.y -= 50 * delta
+			fish[i].position.y -= 100 * delta
 			if fish[i].position.x > 1800 or fish[i].position.x < -200:
 				fish[i].queue_free()
 				fishcount -= 1

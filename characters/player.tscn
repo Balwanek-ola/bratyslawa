@@ -35,7 +35,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_h1q25")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -61,6 +61,8 @@ script = ExtResource("1_3eadt")
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=688367245]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j31ep")
+animation = &"idle"
+frame_progress = 0.96847045
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1756113845]
 position = Vector2(2, 1)
@@ -69,6 +71,7 @@ shape = SubResource("CircleShape2D_6t23p")
 [node name="Light" type="Node2D" parent="." unique_id=649636491]
 
 [node name="lightsprite" type="Sprite2D" parent="Light" unique_id=1001195290]
+visible = false
 scale = Vector2(3, 3)
 texture = SubResource("GradientTexture2D_tory2")
 

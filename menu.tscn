@@ -108,25 +108,25 @@ libraries/ = SubResource("AnimationLibrary_ytr4m")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=694175343]
-position = Vector2(-6.1040115, 466)
+position = Vector2(-47.10401, 466)
 rotation = -3.1415925
 scale = Vector2(4.9208016, -16.362808)
 shape = SubResource("RectangleShape2D_lti8b")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1079458218]
-position = Vector2(1609.9999, 455)
+position = Vector2(1645, 450.99997)
 rotation = -3.1415925
 scale = Vector2(4.9208016, -16.362808)
 shape = SubResource("RectangleShape2D_ouk20")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2019437772]
-position = Vector2(801.987, -9.914296)
+position = Vector2(801.987, -38.9143)
 rotation = -3.1415925
 scale = Vector2(4.9208016, -16.362808)
 shape = SubResource("RectangleShape2D_mae5d")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=2086344]
-position = Vector2(802, 905)
+position = Vector2(802.00006, 944.99994)
 rotation = -3.1415925
 scale = Vector2(4.9208016, -16.362808)
 shape = SubResource("RectangleShape2D_mae5d")
