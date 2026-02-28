@@ -18,15 +18,21 @@ func _on_start_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
+	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
+
 	mainbuttons.visible = false
 	options.visible = true 
 
 
 func _on_quit_pressed() -> void:
+	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
+
 	get_tree().quit()
 
 
 func _on_back_pressed() -> void:
+	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
+
 	_ready()
 
 
@@ -35,11 +41,15 @@ func _on_audio_control_value_changed(_value: float) -> void:
 
 
 func _on_tutorial_pressed() -> void:
+	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
+
 	mainbuttons.visible = false
 	Tutorial2.visible = true
 
 
 func _on_button_pressed() -> void:
+	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
+
 	_ready()
 
 
