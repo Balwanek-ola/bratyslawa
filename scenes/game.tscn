@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bgyb4vwyv6yyx" path="res://Art/bg/map 2.png" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c1pk64mkvi1p" path="res://Art/our art/ramka.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
+[ext_resource type="PackedScene" uid="uid://cw0qii8grtkic" path="res://pause_menu.tscn" id="11_dinhu"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -315,6 +316,9 @@ text = "back to menu"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "retry now"
+
+[node name="Pause menu" parent="." unique_id=1879092388 instance=ExtResource("11_dinhu")]
+visible = false
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=2068049000]
 visible = false

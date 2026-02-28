@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cw0qii8grtkic"]
+
+[ext_resource type="Script" uid="uid://dyqqneq3byyx5" path="res://pause_menu.gd" id="1_2nc7s"]
+[ext_resource type="Shader" uid="uid://bkud30nu8v7jj" path="res://new_shader.gdshader" id="2_d3xb4"]
+[ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="3_mxa3g"]
+[ext_resource type="Texture2D" uid="uid://djsg11e1677jv" path="res://Art/our art/drive-download-20260228T091033Z-1-001/return.png" id="4_e8sti"]
+[ext_resource type="Texture2D" uid="uid://b7ns445xhbtha" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exit.png" id="5_q2yj1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a32ks"]
+shader = ExtResource("2_d3xb4")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_g7dbl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lv42l"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01353112, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.800000038]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ub45p"]
+_data = {
+&"RESET": SubResource("Animation_g7dbl"),
+&"blur": SubResource("Animation_lv42l")
+}
+
+[node name="Pause menu" type="Control" unique_id=1879092388]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_2nc7s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2046207852]
+material = SubResource("ShaderMaterial_a32ks")
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1756955992]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -287.5
+offset_right = 252.0
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer" unique_id=272021532]
+layout_mode = 2
+color = Color(0.2, 0.6862745, 0.8392157, 0.654902)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1127228534]
+layout_mode = 2
+theme_override_constants/separation = 91
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1583561568]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mxa3g")
+theme_override_font_sizes/font_size = 100
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="Resume" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=1518152403]
+custom_minimum_size = Vector2(0.045, 100.17)
+layout_mode = 2
+texture_normal = ExtResource("4_e8sti")
+stretch_mode = 0
+
+[node name="Main menu" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=463328697]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_q2yj1")
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1783788056]
+libraries/ = SubResource("AnimationLibrary_ub45p")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Main menu" to="." method="_on_main_menu_pressed"]
