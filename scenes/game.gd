@@ -14,7 +14,6 @@ var positions: Array
 
 func _ready() -> void:
 	generate_pos()
-	depthcount()
 	retry()
 
 
@@ -31,6 +30,7 @@ func retry():
 	get_tree().paused = false
 	game = true
 	depth = 0
+	depthcount()
 	lastY = 250
 	$Death.visible = false
 	play_cg()
@@ -61,6 +61,7 @@ func spawnthings():
 	$fish.add_child(newthing)
 	fishcount += 1
 	newthing.position.y = positions[r]
+	newthing.modulate = Color(randi_range(1, 10), randi_range(1, 10),randi_range(1, 10))
 	if ry == 0:
 		newthing.direction = 1
 		newthing.position.x = -100
@@ -85,7 +86,7 @@ func _on_retry_pressed() -> void:
 
 func depthcount():
 	while game:
-		await get_tree().create_timer(0.8).timeout
+		await get_tree().create_timer(0.5).timeout
 		depth += 1
 		$UI/VBoxContainer/Label.text = "depth: %s" %depth
 		
