@@ -1,13 +1,19 @@
 extends Control
+
+func _ready():
+	$AnimationPlayer.play("RESET")
+	hide()
 func pause():
 	get_tree().paused = true
-	$AnimationPlayer.play_backwards("blur")
+	$AnimationPlayer.play("blur")
+	show()
 	
 func resume():
 	get_tree().paused = false
-	$AnimationPlayer.play("blur")
+	$AnimationPlayer.play_backwards("blur")
+	hide()
 
-func _input(event: InputEvent) -> void:
+func testEsc():
 	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
 		print("DZIALA")
 		pause()
@@ -22,4 +28,8 @@ func _on_resume_pressed() -> void:
 
 
 func _on_main_menu_pressed() -> void:
+	resume()
 	get_tree().change_scene_to_file("res://Main Menu.tscn")
+	
+func _process(delta):
+	testEsc()
