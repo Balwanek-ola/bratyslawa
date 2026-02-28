@@ -1,19 +1,65 @@
 [gd_scene format=3 uid="uid://brsxes1krquas"]
 
 [ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_bx684"]
-[ext_resource type="Texture2D" uid="uid://deglgq2puim6c" path="res://icon.svg" id="1_o36cn"]
+[ext_resource type="Texture2D" uid="uid://cqx4uqvgk22dd" path="res://Art/creatures/sprite meduza.png" id="2_bx684"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvd0p"]
+atlas = ExtResource("2_bx684")
+region = Rect2(0, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1l81"]
+atlas = ExtResource("2_bx684")
+region = Rect2(32, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ii7n"]
+atlas = ExtResource("2_bx684")
+region = Rect2(64, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qynn2"]
+atlas = ExtResource("2_bx684")
+region = Rect2(96, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bllom"]
+atlas = ExtResource("2_bx684")
+region = Rect2(128, 0, 32, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hood2"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_rvd0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1l81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ii7n")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qynn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bllom")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx684"]
 
 [node name="badmovingnode" type="Node2D" unique_id=679656428]
 script = ExtResource("1_bx684")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1190651981]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_o36cn")
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=9474732]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hood2")
+animation = &"idle"
+frame_progress = 0.41978768
 
 [node name="Area2D" type="Area2D" parent="." unique_id=712735339]
 collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2089528999]
 scale = Vector2(6, 6)
