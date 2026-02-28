@@ -1,26 +1,25 @@
-[gd_scene format=3 uid="uid://dmukjkcek4whs"]
+[gd_scene format=3 uid="uid://dw5rumw661unl"]
 
-[ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_70pkq"]
-[ext_resource type="Texture2D" uid="uid://bf2tp55086n11" path="res://Art/creatures/sprite swordfish.png" id="2_70pkq"]
-[ext_resource type="Animation" uid="uid://7y4xl1f5moi" path="res://Art/die.res" id="3_55qnh"]
-[ext_resource type="Texture2D" uid="uid://bwwqv3j1dht8t" path="res://new_gradient_texture_2d.tres" id="4_24iyd"]
+[ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_hlh0c"]
+[ext_resource type="Texture2D" uid="uid://dtb7f3y4trjax" path="res://Art/creatures/sprite lay 2 c.png" id="2_hlh0c"]
+[ext_resource type="Animation" uid="uid://7y4xl1f5moi" path="res://Art/die.res" id="3_qc4pd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_55qnh"]
-atlas = ExtResource("2_70pkq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlh0c"]
+atlas = ExtResource("2_hlh0c")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_24iyd"]
-atlas = ExtResource("2_70pkq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aldr"]
+atlas = ExtResource("2_hlh0c")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hood2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_55qnh")
+"texture": SubResource("AtlasTexture_hlh0c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_24iyd")
+"texture": SubResource("AtlasTexture_5aldr")
 }],
 "loop": true,
 "name": &"idle",
@@ -56,21 +55,21 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_24iyd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1l81"]
 _data = {
 &"RESET": SubResource("Animation_bx684"),
-&"die": ExtResource("3_55qnh")
+&"die": ExtResource("3_qc4pd")
 }
 
-[node name="badmovingnode3" type="Node2D" unique_id=679656428]
-script = ExtResource("1_70pkq")
+[node name="badmovingnode" type="Node2D" unique_id=679656428]
+script = ExtResource("1_hlh0c")
 SPEED = 7
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=9474732]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_hood2")
 animation = &"idle"
-frame_progress = 0.5130511
+frame_progress = 0.0543653
 flip_h = true
 
 [node name="enemy" type="Area2D" parent="." unique_id=712735339]
@@ -82,14 +81,8 @@ collision_mask = 3
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_bx684")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57069202]
-libraries/ = SubResource("AnimationLibrary_24iyd")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1499473587]
-z_index = 4
-color = Color(1, 0.398, 0.16000003, 1)
-energy = 0.7
-texture = ExtResource("4_24iyd")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=961568364]
+libraries/ = SubResource("AnimationLibrary_v1l81")
 
 [connection signal="body_entered" from="enemy" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="enemy" to="." method="_on_area_2d_body_exited"]

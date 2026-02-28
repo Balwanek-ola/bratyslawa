@@ -66,9 +66,15 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_tory2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=720113968]
+visible = false
 z_index = 1
 energy = 2.0
 texture = ExtResource("3_tory2")
-texture_scale = 2.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=559747164]
+z_index = 1
+energy = 0.5
+texture = ExtResource("3_tory2")
+texture_scale = 6.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

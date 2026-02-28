@@ -5,6 +5,7 @@ var game = true
 var fishcount: int = 0
 var depth: int = 0
 var light: int = 0
+var costl = 4
 var maxFish = 20
 
 @onready var player = $Player
@@ -13,6 +14,11 @@ var maxFish = 20
 @export var badthing: PackedScene
 @export var swordfish: PackedScene
 @export var lightthing: PackedScene
+@export var sillydih: PackedScene
+
+var currentfih1: PackedScene
+var currentfih2: PackedScene
+
 var lastY = 400
 var positions: Array
 
@@ -21,18 +27,16 @@ func _ready() -> void:
 	retry()
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):
-			fish[i].position.y -= 300 * delta
 			if fish[i].position.x > 1800 or fish[i].position.x < -200:
 				fish[i].queue_free()
 				fishcount -= 1
 	fish = $sword.get_children()
 	if fish != null:
 		for i in range(fish.size()):
-			fish[i].position.y -= 120 * delta
 			if fish[i].position.x > 1800 or fish[i].position.x < -200:
 				fish[i].queue_free()
 				fishcount -= 1
@@ -42,14 +46,22 @@ func _process(delta: float) -> void:
 			light[i].position.y -= 350 * delta
 
 func retry():
+	currentfih1 = badthing
+	currentfih2 = swordfish
 	get_tree().paused = false
 	game = true
 	depth = 0
+	light = 0
+	$UI/Light.value = 0
 	depthcount()
 	lastY = 250
 	$Death.visible = false
 	play_cg()
 	startlighting()
+	$fader.play("RESET")
+	played1 = false
+	played2 = false
+	played3 = false
 	
 	var fish = $fish.get_children()
 	if fish != null:
@@ -79,7 +91,7 @@ func play_cg():
 func spawnthings():
 	var r = randi_range(0, 9)
 	var ry = randi_range(0, 1)
-	var newthing = badthing.instantiate()
+	var newthing = currentfih1.instantiate()
 	$fish.add_child(newthing)
 	fishcount += 1
 	newthing.position.y = positions[r]
@@ -92,7 +104,7 @@ func spawnthings():
 	
 	r = randi_range(0, 9)
 	ry = randi_range(0, 1)
-	newthing = swordfish.instantiate()
+	newthing = currentfih2.instantiate()
 	$sword.add_child(newthing)
 	fishcount += 1
 	newthing.position.y = positions[r]
@@ -150,27 +162,36 @@ func depthcount():
 		if depth < 100:
 			maxFish = 20
 		elif depth > 99 and depth < 250:
-			maxFish = 40
 			if not played1:
+				maxFish = 0
 				$fader.play("fade1")
 				played1 = true
+				currentfih1 = sillydih
+				newlayer(40)
 		elif depth > 249 and depth < 500:
-			maxFish = 60
 			if not played2:
+				maxFish = 0
 				$fader.play("fade2")
 				played2 = true
+				newlayer(60)
 		elif depth > 499 and depth < 800:
-			maxFish = 80
 			if not played3:
+				maxFish = 0
 				$fader.play("fade3")
 				played3 = true
+				newlayer(80)
 		await get_tree().create_timer(0.3).timeout
 		depth += 1
 		$UI/VBoxContainer/Label.text = "depth: %sm" %depth
 		
+func newlayer(newMax: int):
+	await get_tree().create_timer(5).timeout
+	maxFish = newMax
+
 func lightcount():
-	light += 1
-	$UI/VBoxContainer/Label2.text = "light: %s" %light
+	if light < 4:
+		light += 1
+	$UI/Light.value = light
 
 
 func _on_back_pressed() -> void:
