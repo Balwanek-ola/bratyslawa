@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://curdf2xxpxj7l"]
+
+[ext_resource type="Script" uid="uid://dvdnctoby2p04" path="res://characters/light.gd" id="1_c24t5"]
+
+[sub_resource type="Gradient" id="Gradient_lbhrr"]
+offsets = PackedFloat32Array(0.31325302, 0.6927711)
+colors = PackedColorArray(1, 1, 0, 0.7058824, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iywne"]
+gradient = SubResource("Gradient_lbhrr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tsf5"]
+radius = 32.0
+
+[node name="light" type="Node2D" unique_id=668049236]
+script = ExtResource("1_c24t5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1847263033]
+texture = SubResource("GradientTexture2D_iywne")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=221225128]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1085967104]
+shape = SubResource("CircleShape2D_8tsf5")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

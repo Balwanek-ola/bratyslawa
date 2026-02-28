@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b6fpvqixsg52q" path="res://scenes/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://brsxes1krquas" path="res://characters/badmovingnode.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ch6vb5sso3an7" path="res://menu.tscn" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://curdf2xxpxj7l" path="res://characters/light.tscn" id="5_iywne"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -52,7 +51,6 @@ font_size = 46
 [node name="Game" type="Node2D" unique_id=2142069916]
 script = ExtResource("1_yqjtg")
 badthing = ExtResource("2_lnu2h")
-lightthing = ExtResource("5_iywne")
 
 [node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
 
@@ -61,8 +59,6 @@ position = Vector2(800, -100)
 
 [node name="entry" type="AnimationPlayer" parent="." unique_id=609823631]
 libraries/ = SubResource("AnimationLibrary_lnu2h")
-
-[node name="light" type="Node2D" parent="." unique_id=751370533]
 
 [node name="fish" type="Node2D" parent="." unique_id=1301284396]
 

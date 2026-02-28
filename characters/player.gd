@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
+@onready var game
 
 const SPEED = 500.0
 var stop = false
 
 func _ready() -> void:
 	$Icon.play("idle")
+	game = get_parent()
 
 func _physics_process(delta: float) -> void:
 	var input_vector:= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -21,6 +23,10 @@ func _physics_process(delta: float) -> void:
 		elif input_vector.x < 0:
 			$Icon.flip_h = false
 		move_and_slide()
+
+func light():
+	if game != null:
+		game.lightcount()
 
 func hit():
 	die()
