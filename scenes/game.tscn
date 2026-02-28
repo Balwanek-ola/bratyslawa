@@ -6,83 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://ch6vb5sso3an7" path="res://menu.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dmukjkcek4whs" path="res://characters/swordfish.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://curdf2xxpxj7l" path="res://characters/light.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dw5rumw661unl" path="res://characters/sillydih.tscn" id="5_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bgyb4vwyv6yyx" path="res://Art/bg/map 2.png" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c1pk64mkvi1p" path="res://Art/our art/ramka.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
-
-[sub_resource type="Animation" id="Animation_p57ef"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Main:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_u5sy4"]
-resource_name = "fade1"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Main:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.44439223, 0.6487613, 0.6541563, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_gee14"]
-resource_name = "fade2"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Main:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.4443922, 0.6487613, 0.6541563, 1), Color(0.29856128, 0.4706803, 0.47745782, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0tnpc"]
-resource_name = "fade3"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Main:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.29856128, 0.4706803, 0.47745782, 1), Color(0.071760215, 0.13965619, 0.14276731, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
-_data = {
-&"RESET": SubResource("Animation_p57ef"),
-&"fade1": SubResource("Animation_u5sy4"),
-&"fade2": SubResource("Animation_gee14"),
-&"fade3": SubResource("Animation_0tnpc")
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_p57ef"]
-radius = 192.00261
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -121,6 +48,83 @@ _data = {
 &"fallin": SubResource("Animation_yqjtg")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vtaks"]
+blend_mode = 3
+
+[sub_resource type="Animation" id="Animation_p57ef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+resource_name = "fade1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.47557914, 0.74516505, 0.8770015, 1), Color(0.2492634, 0.5091985, 0.63031024, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+resource_name = "fade2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.2492634, 0.5091985, 0.63031024, 1), Color(0.15123564, 0.33930898, 0.42677674, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "fade3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.34117648, 0.42745098, 1), Color(0.14901961, 0.20784314, 0.34117648, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
+_data = {
+&"RESET": SubResource("Animation_p57ef"),
+&"fade1": SubResource("Animation_u5sy4"),
+&"fade2": SubResource("Animation_gee14"),
+&"fade3": SubResource("Animation_0tnpc")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p57ef"]
+radius = 192.00261
+
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
 font_size = 39
 
@@ -129,13 +133,29 @@ script = ExtResource("1_yqjtg")
 badthing = ExtResource("2_lnu2h")
 swordfish = ExtResource("3_p57ef")
 lightthing = ExtResource("5_iywne")
+sillydih = ExtResource("5_vtaks")
+
+[node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
+
+[node name="entry" type="AnimationPlayer" parent="." unique_id=609823631]
+libraries/ = SubResource("AnimationLibrary_lnu2h")
+
+[node name="light" type="Node2D" parent="." unique_id=751370533]
+
+[node name="fish" type="Node2D" parent="." unique_id=1301284396]
+
+[node name="sword" type="Node2D" parent="." unique_id=806000318]
+
+[node name="shade" type="ColorRect" parent="." unique_id=1753139240]
+material = SubResource("CanvasItemMaterial_vtaks")
+custom_minimum_size = Vector2(1600, 900)
+offset_right = 1600.0
+offset_bottom = 900.0
+color = Color(0.4745098, 0.74509805, 0.8784314, 1)
 
 [node name="fader" type="AnimationPlayer" parent="." unique_id=288750501]
 root_node = NodePath("../entry")
 libraries/ = SubResource("AnimationLibrary_vtaks")
-
-[node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
-modulate = Color(1, 1, 1, 1)
 
 [node name="Player" parent="." unique_id=1226060005 instance=ExtResource("1_uwrxv")]
 position = Vector2(800, -100)
@@ -146,15 +166,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ability" unique_id=2003128287]
 shape = SubResource("CircleShape2D_p57ef")
 debug_color = Color(0.6133603, 0.36003596, 1, 0.41960785)
-
-[node name="entry" type="AnimationPlayer" parent="." unique_id=609823631]
-libraries/ = SubResource("AnimationLibrary_lnu2h")
-
-[node name="light" type="Node2D" parent="." unique_id=751370533]
-
-[node name="fish" type="Node2D" parent="." unique_id=1301284396]
-
-[node name="sword" type="Node2D" parent="." unique_id=806000318]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1979460724]
 

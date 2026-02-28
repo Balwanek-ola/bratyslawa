@@ -11,7 +11,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		game.ability()
+		if game.light >= game.costl:
+			game.light -= game.costl
+			game.ability()
 
 func _physics_process(delta: float) -> void:
 	var input_vector:= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
