@@ -12,6 +12,8 @@ func _ready():
 
 
 func _on_start_pressed() -> void:
+	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
+	
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
@@ -41,5 +43,4 @@ func _on_button_pressed() -> void:
 	_ready()
 
 
-func _on_h_slider_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	
