@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://duivwsbgcn2ah"]
+
+[ext_resource type="Script" uid="uid://c585et2t6kn3b" path="res://credits.gd" id="1_pjc1l"]
+[ext_resource type="Texture2D" uid="uid://b7ns445xhbtha" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exit.png" id="2_j6beo"]
+[ext_resource type="Texture2D" uid="uid://bn3afi6yeh3vi" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exitclick.png" id="3_4av4j"]
+[ext_resource type="Texture2D" uid="uid://m0gw1gju5s4b" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exihovert.png" id="4_5em78"]
+
+[node name="credits" type="Control" unique_id=1355323096]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pjc1l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=428892708]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.075703554, 0.15909073, 0.23066065, 1)
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=2083090392]
+layout_mode = 0
+offset_left = 1079.0
+offset_top = 737.0
+offset_right = 1557.0
+offset_bottom = 828.0
+texture_normal = ExtResource("2_j6beo")
+texture_pressed = ExtResource("3_4av4j")
+texture_hover = ExtResource("4_5em78")
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
