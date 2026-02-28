@@ -55,6 +55,8 @@ func retry():
 	game = true
 	depth = 0
 	light = 0
+	player.health = player.MxHealth
+	player.HBar.setvalue(player.MxHealth)
 	$UI/Light.value = 0
 	depthcount()
 	lastY = 250
