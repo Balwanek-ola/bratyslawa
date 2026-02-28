@@ -39,3 +39,7 @@ func _on_tutorial_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	_ready()
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	pass # Replace with function body.
