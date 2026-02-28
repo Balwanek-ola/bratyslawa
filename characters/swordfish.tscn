@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dmukjkcek4whs"]
+
+[ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_70pkq"]
+[ext_resource type="Texture2D" uid="uid://bf2tp55086n11" path="res://Art/creatures/sprite swordfish.png" id="2_70pkq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55qnh"]
+atlas = ExtResource("2_70pkq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24iyd"]
+atlas = ExtResource("2_70pkq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hood2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55qnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24iyd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx684"]
+
+[node name="badmovingnode" type="Node2D" unique_id=679656428]
+script = ExtResource("1_70pkq")
+
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=9474732]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hood2")
+animation = &"idle"
+frame_progress = 0.19363426
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=712735339]
+visible = false
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2089528999]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_bx684")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

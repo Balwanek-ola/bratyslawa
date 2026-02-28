@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b6fpvqixsg52q" path="res://scenes/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://brsxes1krquas" path="res://characters/badmovingnode.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ch6vb5sso3an7" path="res://menu.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dmukjkcek4whs" path="res://characters/swordfish.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://curdf2xxpxj7l" path="res://characters/light.tscn" id="5_iywne"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
@@ -52,6 +53,7 @@ font_size = 46
 [node name="Game" type="Node2D" unique_id=2142069916]
 script = ExtResource("1_yqjtg")
 badthing = ExtResource("2_lnu2h")
+swordfish = ExtResource("3_p57ef")
 lightthing = ExtResource("5_iywne")
 
 [node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
