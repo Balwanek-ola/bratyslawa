@@ -279,6 +279,21 @@ theme_override_fonts/font = ExtResource("22_50c28")
 theme_override_font_sizes/font_size = 35
 text = "SFX"
 
+[node name="Credits2" type="Button" parent="Options" unique_id=1524762488]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 513.0
+offset_right = 576.0
+offset_bottom = 579.0
+text = "Credits"
+
+[node name="Credits" type="Panel" parent="Options/Credits2" unique_id=1038481950]
+layout_mode = 0
+offset_left = -33.0
+offset_top = -96.0
+offset_right = 7.0
+offset_bottom = -56.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=513918772]
 stream = SubResource("AudioStreamMP3_dvdtt")
 autoplay = true
@@ -327,4 +342,5 @@ bus = &"SFX"
 [connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
 [connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
 [connection signal="value_changed" from="Options/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="Options/Credits2" to="." method="_on_credits_2_pressed"]
 [connection signal="pressed" from="Tutorial2/Button" to="." method="_on_button_pressed"]
