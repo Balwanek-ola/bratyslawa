@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwwon28covwrp"
+path="res://.godot/imported/idoberg-relaxing-guitar-loop-v5-245859.mp3-e006e634bffc415e570357ca82c168da.mp3str"
+
+[deps]
+
+source_file="res://Art/our art/idoberg-relaxing-guitar-loop-v5-245859.mp3"
+dest_files=["res://.godot/imported/idoberg-relaxing-guitar-loop-v5-245859.mp3-e006e634bffc415e570357ca82c168da.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
