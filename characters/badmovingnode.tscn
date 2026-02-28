@@ -46,7 +46,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx684"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx684"]
 
 [node name="badmovingnode" type="Node2D" unique_id=679656428]
 script = ExtResource("1_bx684")
@@ -55,15 +55,15 @@ script = ExtResource("1_bx684")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_hood2")
 animation = &"idle"
-frame_progress = 0.41978768
+frame_progress = 0.85699725
 
 [node name="Area2D" type="Area2D" parent="." unique_id=712735339]
 collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2089528999]
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_bx684")
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_bx684")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
