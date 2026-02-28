@@ -1,10 +1,15 @@
 extends Node2D
 class_name enemy
 
+@export var animationplayer: AnimationPlayer
+
 @export var SPEED = 2
+@export var speedUP = 5
+
 var stop = false
 var direction: int
 var velocity
+var velocityUp
 var inAbility: bool = false
 
 func _ready() -> void:
@@ -12,14 +17,18 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if stop == false and direction != null:
-		velocity = SPEED * Vector2(direction, 0)
+		velocity = SPEED * direction
+		velocityUp = speedUP * -1
 		self.scale.x = direction
-		self.position += velocity
+		self.position.x += velocity
+		self.position.y += velocityUp
 
 func die():
 	stop = true
-	print("die")
-	$AnimationPlayer.play("die")
+	print("DIE START pos=", position)
+	animationplayer.play("die")
+	await get_tree().create_timer(0.2).timeout
+	print("PO 0.2s pos=", position)
 #	await get_tree().create_timer(1.2).timeout
 #	self.queue_free()
 

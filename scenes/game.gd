@@ -21,19 +21,17 @@ func _ready() -> void:
 	retry()
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):
-			fish[i].position.y -= 300 * delta
-			if fish[i].position.x > 1800 or fish[i].position.x < -200:
+			if fish[i].position.x > 1800 or fish[i].position.x < -200 or fish[i].position.y < -200:
 				fish[i].queue_free()
 				fishcount -= 1
 	fish = $sword.get_children()
 	if fish != null:
 		for i in range(fish.size()):
-			fish[i].position.y -= 120 * delta
-			if fish[i].position.x > 1800 or fish[i].position.x < -200:
+			if fish[i].position.x > 1800 or fish[i].position.x < -200 or fish[i].position.y < -200:
 				fish[i].queue_free()
 				fishcount -= 1
 	var light = $light.get_children()
