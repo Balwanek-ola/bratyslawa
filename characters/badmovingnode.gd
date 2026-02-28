@@ -1,6 +1,6 @@
 extends Node2D
 class_name enemy
-
+#KOCHAM MARKA
 @export var SPEED = 2
 @export var speedUP = 5
 var stop = false
