@@ -40,8 +40,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6t23p"]
-radius = 30.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tory2"]
+radius = 25.0
+height = 100.0
 
 [sub_resource type="Gradient" id="Gradient_3eadt"]
 offsets = PackedFloat32Array(0.37349397, 0.72289157)
@@ -55,10 +56,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[node name="Player" type="CharacterBody2D" unique_id=1226060005 node_paths=PackedStringArray("lightnode")]
+[node name="Player" type="CharacterBody2D" unique_id=1226060005]
 collision_mask = 14
 script = ExtResource("1_3eadt")
-lightnode = NodePath("")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=688367245]
 scale = Vector2(4, 4)
@@ -68,7 +68,8 @@ frame_progress = 0.96847045
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1756113845]
 position = Vector2(2, 1)
-shape = SubResource("CircleShape2D_6t23p")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tory2")
 
 [node name="Light" type="Node2D" parent="." unique_id=649636491]
 visible = false

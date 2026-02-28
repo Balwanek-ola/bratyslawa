@@ -15,6 +15,8 @@ var maxFish = 20
 @export var lightthing: PackedScene
 @export var sillydih: PackedScene
 @export var mareczek: PackedScene
+@export var tenma: PackedScene
+@export var johnfih: PackedScene
 
 var currentfih1: PackedScene
 var currentfih2: PackedScene
@@ -53,6 +55,8 @@ func retry():
 	game = true
 	depth = 0
 	light = 0
+	player.health = player.MxHealth
+	player.HBar.setvalue(player.MxHealth)
 	$UI/Light.value = 0
 	depthcount()
 	lastY = 250
@@ -176,13 +180,9 @@ func depthcount():
 				maxFish = 0
 				$fader.play("fade2")
 				played2 = true
+				currentfih1 = tenma
+				currentfih2 = johnfih
 				newlayer(60)
-		elif depth > 499 and depth < 800:
-			if not played3:
-				maxFish = 0
-				$fader.play("fade3")
-				played3 = true
-				newlayer(80)
 		await get_tree().create_timer(0.3).timeout
 		depth += 1
 		$UI/VBoxContainer/Label.text = "depth: %sm" %depth
