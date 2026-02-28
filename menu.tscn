@@ -84,6 +84,7 @@ size = Vector2(13.0482855, 56.630135)
 size = Vector2(338.16156, 3.534133)
 
 [node name="Main" type="Node2D" unique_id=495378431]
+modulate = Color(0.48235294, 1, 1, 1)
 
 [node name="bg" type="Node2D" parent="." unique_id=827343726]
 script = ExtResource("1_ouk20")

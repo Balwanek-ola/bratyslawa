@@ -5,6 +5,7 @@ var game = true
 var fishcount: int = 0
 var depth: int = 0
 var light: int = 0
+var maxFish = 20
 
 @onready var player = $Player
 
@@ -104,7 +105,7 @@ func spawnthings():
 
 func startspawning():
 	while game:
-		if fishcount < depth/3 -1:
+		if fishcount < maxFish:
 			spawnthings()
 		await get_tree().create_timer(0.2).timeout
 
@@ -124,8 +125,9 @@ func spawn_light():
 
 func startlighting():
 	while game:
+		await get_tree().create_timer(7).timeout
 		spawn_light()
-		await get_tree().create_timer(5).timeout
+		
 
 func die():
 	if depth > SaveLoad.high_score:
@@ -141,7 +143,16 @@ func _on_retry_pressed() -> void:
 
 func depthcount():
 	while game:
-		await get_tree().create_timer(0.5).timeout
+		if depth < 100:
+			maxFish = 20
+		elif depth > 99 and depth < 250:
+			maxFish = 40
+		elif depth > 249 and depth < 500:
+			maxFish = 60
+		elif depth > 499 and depth < 800:
+			maxFish = 80
+				
+		await get_tree().create_timer(0.3).timeout
 		depth += 1
 		$UI/VBoxContainer/Label.text = "depth: %sm" %depth
 		
