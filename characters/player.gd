@@ -2,11 +2,16 @@ extends CharacterBody2D
 
 @onready var game
 @export var lightnode: PointLight2D
+@export var HBar: Node2D
 
 const SPEED = 500.0
 var stop = false
 
+var health = 3
+var MxHealth = 3
+
 func _ready() -> void:
+	HBar.setvalue(MxHealth)
 	$Icon.play("idle")
 	game = get_parent()
 
@@ -36,7 +41,12 @@ func light():
 		game.lightcount()
 
 func hit():
-	die()
+	if health == 0:
+		die()
+	else:
+		health -= 1
+		HBar.setvalue(health)
+	
 	
 func die():
 	var gamescene = get_parent()

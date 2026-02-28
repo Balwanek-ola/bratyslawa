@@ -63,13 +63,15 @@ _data = {
 
 [node name="badmovingnode" type="Node2D" unique_id=679656428]
 script = ExtResource("1_3yfq3")
-SPEED = 3
+SPEED = 1
+speedUP = 1
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=9474732]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_hood2")
 animation = &"idle"
 frame_progress = 0.13749057
+flip_h = true
 
 [node name="enemy" type="Area2D" parent="." unique_id=712735339]
 visible = false

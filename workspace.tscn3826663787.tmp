@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ct2org1mpdias"]
+
+[ext_resource type="PackedScene" uid="uid://b35gxpcpo7ruf" path="res://health_bar.tscn" id="1_nf4vs"]
+[ext_resource type="PackedScene" uid="uid://1h4q28du6pot" path="res://characters/player.tscn" id="2_a61m0"]
+[ext_resource type="Script" uid="uid://bk3rybgdkq3au" path="res://health_bar.gd" id="2_skbvl"]
+[ext_resource type="PackedScene" uid="uid://b1ns7cwtwckuo" path="res://characters/mareczek.tscn" id="3_skbvl"]
+
+[node name="Node2D" type="Node2D" unique_id=624596789]
+
+[node name="Health bar" parent="." unique_id=207832460 instance=ExtResource("1_nf4vs")]
+script = ExtResource("2_skbvl")
+
+[node name="Player" parent="." unique_id=1226060005 node_paths=PackedStringArray("HBar") instance=ExtResource("2_a61m0")]
+position = Vector2(324, 297)
+HBar = NodePath("../Health bar")
+
+[node name="badmovingnode" parent="." unique_id=679656428 instance=ExtResource("3_skbvl")]
+position = Vector2(614, 292)
