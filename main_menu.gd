@@ -3,12 +3,15 @@ extends Node2D
 @onready var mainbuttons: VBoxContainer = $Mainbuttons
 @onready var options: Panel = $Options
 @onready var Tutorial2: Panel = $Tutorial2
-
+@onready var Logo: TextureRect = $TextureRect
+@onready var Logo2: ColorRect = $ColorRect
 
 func _ready():
 	mainbuttons.visible = true
 	options.visible = false
 	Tutorial2.visible = false
+	Logo.visible = true
+	Logo2.visible = true
 	
 
 func _on_start_pressed() -> void:
@@ -22,6 +25,8 @@ func _on_options_pressed() -> void:
 
 	mainbuttons.visible = false
 	options.visible = true 
+	Logo.visible = false
+	Logo2.visible = false
 	
 
 func _on_quit_pressed() -> void:
