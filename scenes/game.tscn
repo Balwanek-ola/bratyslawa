@@ -209,6 +209,7 @@ size_flags_horizontal = 4
 text = "retry now"
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=2068049000]
+visible = false
 position = Vector2(254, 692)
 scale = Vector2(8, 8)
 texture = ExtResource("7_u5sy4")

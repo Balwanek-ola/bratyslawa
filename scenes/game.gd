@@ -182,11 +182,11 @@ func ability():
 	if fish != null:
 		for i in range(fish.size()):
 			if fish[i].inAbility:
-				fish[i].queue_free()
+				fish[i].die()
 				fishcount -= 1
 	fish = $sword.get_children()
 	if fish != null:
 		for i in range(fish.size()):
 			if fish[i].inAbility:
-				fish[i].queue_free()
+				fish[i].die()
 				fishcount -= 1
