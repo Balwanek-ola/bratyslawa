@@ -10,6 +10,7 @@ var light: int = 0
 
 #@onready var badthing = preload(res://characters/badmoving.tscn)
 @export var badthing: PackedScene
+@export var swordfish: PackedScene
 @export var lightthing: PackedScene
 var lastY = 400
 var positions: Array
@@ -23,7 +24,7 @@ func _process(delta: float) -> void:
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):
-			fish[i].position.y -= 150 * delta
+			fish[i].position.y -= 300 * delta
 			if fish[i].position.x > 1800 or fish[i].position.x < -200:
 				fish[i].queue_free()
 				fishcount -= 1
@@ -101,6 +102,9 @@ func startlighting():
 		await get_tree().create_timer(5).timeout
 
 func die():
+	if depth > SaveLoad.high_score:
+		SaveLoad.high_score = depth
+		SaveLoad._save()
 	$Death.visible = true
 	get_tree().paused = true
 	game = false

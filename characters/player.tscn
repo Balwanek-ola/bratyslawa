@@ -71,7 +71,6 @@ shape = SubResource("CircleShape2D_6t23p")
 [node name="Light" type="Node2D" parent="." unique_id=649636491]
 
 [node name="lightsprite" type="Sprite2D" parent="Light" unique_id=1001195290]
-visible = false
 scale = Vector2(3, 3)
 texture = SubResource("GradientTexture2D_tory2")
 
