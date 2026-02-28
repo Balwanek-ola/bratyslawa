@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://cb4wmq8adhqku"
 
+[autoload]
+
+SaveLoad="*uid://verbvtcassbi"
+
 [display]
 
 window/size/viewport_width=1600

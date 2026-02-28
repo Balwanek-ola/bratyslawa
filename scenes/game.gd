@@ -118,3 +118,8 @@ func depthcount():
 func lightcount():
 	light += 1
 	$UI/VBoxContainer/Label2.text = "light: %s" %light
+
+
+func _on_back_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Main Menu.tscn")

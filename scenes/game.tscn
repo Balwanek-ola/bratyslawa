@@ -107,9 +107,15 @@ text = "you died xd"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="back" type="Button" parent="Death/VBoxContainer" unique_id=80940432]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "back to menu"
+
 [node name="retry" type="Button" parent="Death/VBoxContainer" unique_id=586742683]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "retry now"
 
+[connection signal="pressed" from="Death/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Death/VBoxContainer/retry" to="." method="_on_retry_pressed"]
