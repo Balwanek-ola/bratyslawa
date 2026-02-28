@@ -2,29 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://debii7vy8utpd" path="res://Art/our art/Sprite-0002.png" id="1_5b7ti"]
 [ext_resource type="Script" uid="uid://k8vkxsy3xnlo" path="res://main_menu.gd" id="1_dvdtt"]
-[ext_resource type="Script" uid="uid://cncqubwp1vgn8" path="res://audio_control.gd" id="3_i5qic"]
-[ext_resource type="Texture2D" uid="uid://d3tuodaa6ol74" path="res://Art/our art/start.png" id="3_wlsky"]
+[ext_resource type="Texture2D" uid="uid://py47u4p2k2yg" path="res://Art/our art/new start.png" id="3_6viy2"]
+[ext_resource type="AudioStream" uid="uid://p5ej6d2ygtua" path="res://Art/kenney_space-shooter-redux/Bonus/sfx_shieldDown.ogg" id="3_i5qic"]
+[ext_resource type="Texture2D" uid="uid://djy1s4a0adgbd" path="res://Art/our art/new tutorial.png" id="4_4gws7"]
 [ext_resource type="Script" uid="uid://du6tegmes5p0e" path="res://fullscreen_control.gd" id="4_12kdf"]
-[ext_resource type="Texture2D" uid="uid://brnfpwm5qksvm" path="res://Art/our art/settings.png" id="4_ht6vt"]
 [ext_resource type="Texture2D" uid="uid://bxk7deycv0psr" path="res://Art/our art/exit.png" id="5_bcalf"]
+[ext_resource type="Texture2D" uid="uid://cfqp67spqnpmd" path="res://Art/our art/przycisk 1 exit.png" id="5_u78o4"]
+[ext_resource type="AudioStream" uid="uid://wuo5e00tngsq" path="res://Art/our art/confirmation_003.ogg" id="5_whf7w"]
+[ext_resource type="Texture2D" uid="uid://bdkmqrfb3ru5y" path="res://Art/our art/tutorial11.png" id="6_whf7w"]
+[ext_resource type="Script" uid="uid://cncqubwp1vgn8" path="res://audio_control.gd" id="8_4gws7"]
 [ext_resource type="Script" uid="uid://drgheml6nka0l" path="res://sfx.gd" id="8_ht6vt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvdtt"]
 texture = ExtResource("1_5b7ti")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b7ti"]
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvdtt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5qic"]
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_dvdtt"]
 color = Color(0.043137256, 0.5254902, 1, 1)
@@ -90,14 +80,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -244.33246
-offset_top = -524.2657
-offset_right = -180.33246
-offset_bottom = -460.2657
+offset_left = -304.91632
+offset_top = -250.70468
+offset_right = -240.91632
+offset_bottom = -236.70468
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.878311, 7.508557)
-texture_normal = ExtResource("3_wlsky")
+texture_normal = ExtResource("3_6viy2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Mainbuttons/Button_Manager/Start" unique_id=1541595386]
+stream = ExtResource("3_i5qic")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Mainbuttons/Button_Manager/Start" unique_id=823584692]
+stream = ExtResource("5_whf7w")
+bus = &"SFX"
 
 [node name="Options" type="TextureButton" parent="Mainbuttons/Button_Manager" unique_id=1103167139]
 layout_mode = 1
@@ -106,14 +104,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 106.86456
-offset_top = -286.4274
-offset_right = 170.86456
-offset_bottom = -222.4274
+offset_left = -303.02316
+offset_top = -139.77612
+offset_right = -239.0232
+offset_bottom = -125.77612
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.943391, 7.6988425)
-texture_normal = ExtResource("4_ht6vt")
+texture_normal = ExtResource("4_4gws7")
 
 [node name="Quit" type="TextureButton" parent="Mainbuttons/Button_Manager" unique_id=1813298655]
 layout_mode = 1
@@ -122,38 +120,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -563.3443
-offset_top = -118.15445
-offset_right = -499.3443
-offset_bottom = -54.15445
+offset_left = -301.12982
+offset_top = 99.94232
+offset_right = -237.12982
+offset_bottom = 113.94232
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.947662, 7.9078584)
-texture_normal = ExtResource("5_bcalf")
+texture_normal = ExtResource("5_u78o4")
 
-[node name="Tutorial" type="Button" parent="Mainbuttons/Button_Manager" unique_id=342353515]
+[node name="Tutorial" type="TextureButton" parent="Mainbuttons/Button_Manager" unique_id=1313443842]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -596.4761
-offset_top = -211.22165
-offset_right = 24.5083
-offset_bottom = -116.22165
+offset_left = -301.1298
+offset_top = -20.386932
+offset_right = -234.86621
+offset_bottom = -0.64538574
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 63
-theme_override_styles/normal = SubResource("StyleBoxFlat_5b7ti")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_dvdtt")
-text = "Tutorial"
+scale = Vector2(8.88122, 7.996525)
+texture_normal = ExtResource("6_whf7w")
 
 [node name="Options" type="Panel" parent="." unique_id=1166316612]
-offset_left = 434.0
-offset_top = 51.0
-offset_right = 1221.0
-offset_bottom = 869.0
+offset_left = 437.0
+offset_top = 65.0
+offset_right = 1224.0
+offset_bottom = 883.0
 
 [node name="Label" type="Label" parent="Options" unique_id=2074205032]
 layout_mode = 0
@@ -164,22 +160,21 @@ offset_bottom = 88.0
 theme_override_font_sizes/font_size = 47
 text = "Options "
 
-[node name="Back" type="Button" parent="Options" unique_id=593725229]
+[node name="Back" type="TextureButton" parent="Options" unique_id=104928140]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.5
-offset_top = 288.0
-offset_right = 316.5379
-offset_bottom = 378.0
+offset_left = -331.5
+offset_top = 298.0
+offset_right = -266.42795
+offset_bottom = 312.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 63
-theme_override_styles/normal = SubResource("StyleBoxFlat_i5qic")
-text = "Quit"
+scale = Vector2(9.092796, 7.728014)
+texture_normal = ExtResource("5_u78o4")
 
 [node name="AudioControl" type="HSlider" parent="Options" unique_id=1463308437]
 layout_mode = 0
@@ -191,7 +186,7 @@ theme_override_styles/slider = SubResource("StyleBoxLine_dvdtt")
 max_value = 1.0
 step = 0.05
 value = 1.0
-script = ExtResource("3_i5qic")
+script = ExtResource("8_4gws7")
 audio_bus_name = "Music"
 
 [node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1875264340]
@@ -207,11 +202,13 @@ script = ExtResource("4_12kdf")
 
 [node name="sfx" type="HSlider" parent="Options" unique_id=1293241125]
 layout_mode = 0
-offset_left = 109.0
-offset_top = 155.0
-offset_right = 632.0
-offset_bottom = 271.0
+offset_left = 117.0
+offset_top = 199.0
+offset_right = 640.0
+offset_bottom = 215.0
 theme_override_styles/slider = SubResource("StyleBoxLine_bcalf")
+max_value = 1.0
+step = 0.05
 script = ExtResource("8_ht6vt")
 audio_bus_name = "SFX"
 
