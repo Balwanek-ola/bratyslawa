@@ -41,12 +41,10 @@ func light():
 		game.lightcount()
 
 func hit():
+	health -= 1
+	HBar.setvalue(health)
 	if health == 0:
 		die()
-	else:
-		health -= 1
-		HBar.setvalue(health)
-	
 	
 func die():
 	var gamescene = get_parent()
