@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dibuxgwotaotm"]
+
+[ext_resource type="Script" uid="uid://cc5pje8cu6v84" path="res://intro.gd" id="1_7a8ye"]
+[ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="2_0a7ni"]
+[ext_resource type="Texture2D" uid="uid://cg4c0v6i0usec" path="res://Art/our art/drive-download-20260228T091033Z-1-001/dervopol8157.png" id="3_y72e6"]
+[ext_resource type="AudioStream" uid="uid://bxth4dc60f7we" path="res://intro (mp3cut.net).mp3" id="4_0a7ni"]
+
+[sub_resource type="Animation" id="Animation_u2rf6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y6ycx"]
+resource_name = "fade_in"
+length = 3.1666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dpxxx"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.99, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dk2oa"]
+_data = {
+&"RESET": SubResource("Animation_u2rf6"),
+&"fade_in": SubResource("Animation_y6ycx"),
+&"fade_out": SubResource("Animation_dpxxx")
+}
+
+[node name="intro" type="Node2D" unique_id=478617175]
+script = ExtResource("1_7a8ye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=854974230]
+follow_viewport_enabled = true
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=334897233]
+offset_right = 1718.0
+offset_bottom = 1054.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=696026220]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.75
+offset_top = -293.5
+offset_right = 306.75
+offset_bottom = 293.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1211786922]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0a7ni")
+theme_override_font_sizes/font_size = 52
+text = "Game by"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1044176528]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0a7ni")
+theme_override_font_sizes/font_size = 59
+text = "DERBOPOL 8157"
+horizontal_alignment = 1
+
+[node name="Dervopol8157" type="Sprite2D" parent="CanvasLayer/VBoxContainer" unique_id=36870911]
+position = Vector2(310.75, 295.5)
+scale = Vector2(0.46566522, 0.46566522)
+texture = ExtResource("3_y72e6")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2043920139]
+offset_left = 620.0
+offset_top = 646.0
+offset_right = 980.0
+offset_bottom = 689.0
+theme_override_fonts/font = ExtResource("2_0a7ni")
+theme_override_font_sizes/font_size = 42
+text = "And friend ;3"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1503657060]
+offset_right = 1600.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1511016352]
+libraries/ = SubResource("AnimationLibrary_dk2oa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=710854080]
+stream = ExtResource("4_0a7ni")
+bus = &"Music"
