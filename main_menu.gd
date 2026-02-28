@@ -3,13 +3,13 @@ extends Node2D
 @onready var mainbuttons: VBoxContainer = $Mainbuttons
 @onready var options: Panel = $Options
 @onready var Tutorial2: Panel = $Tutorial2
-@onready var Credits: Panel = $Options/Credits2/Credits
+
 
 func _ready():
 	mainbuttons.visible = true
 	options.visible = false
 	Tutorial2.visible = false
-	Credits.visible = false
+	
 
 func _on_start_pressed() -> void:
 	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
@@ -56,12 +56,7 @@ func _on_button_pressed() -> void:
 	
 
 
-func _on_credits2_pressed() -> void:
-	mainbuttons.visible = false
-	Tutorial2.visible = false
-	options.visible = false
-	Credits.visible = true
 
 
 func _on_credits_2_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://credits.tscn")

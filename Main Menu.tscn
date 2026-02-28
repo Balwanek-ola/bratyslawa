@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cffj6syljm13m"]
 
 [ext_resource type="Script" uid="uid://k8vkxsy3xnlo" path="res://main_menu.gd" id="1_dvdtt"]
-[ext_resource type="Texture2D" uid="uid://dqvft1y5idwow" path="res://Art/our art/fihbetter.png" id="2_mg4k4"]
+[ext_resource type="Texture2D" uid="uid://debii7vy8utpd" path="res://Art/our art/Sprite-0002.png" id="2_4ga1q"]
 [ext_resource type="Texture2D" uid="uid://py47u4p2k2yg" path="res://Art/our art/new start.png" id="3_6viy2"]
 [ext_resource type="AudioStream" uid="uid://p5ej6d2ygtua" path="res://Art/kenney_space-shooter-redux/Bonus/sfx_shieldDown.ogg" id="3_i5qic"]
 [ext_resource type="Texture2D" uid="uid://djy1s4a0adgbd" path="res://Art/our art/new tutorial.png" id="4_4gws7"]
@@ -23,9 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://df06ym5tt5j2m" path="res://Art/our art/drive-download-20260228T091033Z-1-001/tutoriahoverl.png" id="16_d8rbn"]
 [ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="18_d8rbn"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="22_50c28"]
+[ext_resource type="Texture2D" uid="uid://dateptogthso7" path="res://Art/our art/fihnazwa3.png" id="24_nn1g5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvdtt"]
-texture = ExtResource("2_mg4k4")
+texture = ExtResource("2_4ga1q")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gteid"]
 texture = ExtResource("9_whf7w")
@@ -78,10 +79,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -492.0
-offset_top = -21.0
-offset_right = 1108.0
-offset_bottom = 879.0
+offset_left = -382.0
+offset_top = -3.0
+offset_right = 1218.0
+offset_bottom = 897.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0563871, 1.0637479)
@@ -97,10 +98,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.9697
-offset_top = -262.9256
-offset_right = -239.96973
-offset_bottom = -248.9256
+offset_left = -303.96967
+offset_top = -264.8056
+offset_right = -239.96967
+offset_bottom = -250.8056
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.878311, 7.508557)
@@ -123,10 +124,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.02316
-offset_top = -139.77612
-offset_right = -239.0232
-offset_bottom = -125.77612
+offset_left = -303.02313
+offset_top = -141.65619
+offset_right = -239.02313
+offset_bottom = -127.65619
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.943391, 7.6988425)
@@ -145,10 +146,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -301.12982
-offset_top = 99.94232
-offset_right = -237.12982
-offset_bottom = 113.94232
+offset_left = -301.12976
+offset_top = 98.06213
+offset_right = -237.12976
+offset_bottom = 112.06213
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.947662, 7.9078584)
@@ -167,10 +168,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -301.1298
-offset_top = -20.386932
-offset_right = -234.86621
-offset_bottom = -0.64538574
+offset_left = -301.12973
+offset_top = -22.266998
+offset_right = -234.86615
+offset_bottom = -2.5254517
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.88122, 7.996525)
@@ -182,7 +183,18 @@ texture_hover = ExtResource("16_d8rbn")
 stream = ExtResource("5_whf7w")
 bus = &"SFX"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Mainbuttons/Button_Manager" unique_id=239825984]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Mainbuttons/Button_Manager" unique_id=161349020]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Options" type="Panel" parent="." unique_id=1166316612]
+visible = false
 offset_left = 364.0
 offset_top = 62.0
 offset_right = 1151.0
@@ -287,13 +299,6 @@ offset_right = 576.0
 offset_bottom = 579.0
 text = "Credits"
 
-[node name="Credits" type="Panel" parent="Options/Credits2" unique_id=1038481950]
-layout_mode = 0
-offset_left = -33.0
-offset_top = -96.0
-offset_right = 7.0
-offset_bottom = -56.0
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=513918772]
 stream = SubResource("AudioStreamMP3_dvdtt")
 autoplay = true
@@ -333,6 +338,20 @@ text = "*insert tutorial*"
 [node name="sfx" type="AudioStreamPlayer" parent="." unique_id=796825489]
 stream = SubResource("AudioStreamOggVorbis_6viy2")
 bus = &"SFX"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=525473489]
+offset_left = 946.0
+offset_top = 517.0
+offset_right = 1519.0
+offset_bottom = 864.0
+color = Color(0.8392157, 0.90588236, 0.9882353, 0.54901963)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1481902743]
+offset_left = 946.0
+offset_top = 527.0
+offset_right = 1540.0
+offset_bottom = 857.0
+texture = ExtResource("24_nn1g5")
 
 [connection signal="pressed" from="Mainbuttons/Button_Manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Mainbuttons/Button_Manager/Options" to="." method="_on_options_pressed"]
