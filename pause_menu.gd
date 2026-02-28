@@ -2,11 +2,12 @@ extends Control
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play_backwards("blur")
+	
 func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play("blur")
 
-func esc():
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
 		print("DZIALA")
 		pause()

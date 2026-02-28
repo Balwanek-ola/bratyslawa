@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b35gxpcpo7ruf"]
 
 [ext_resource type="Texture2D" uid="uid://cm7kme6s06nej" path="res://Art/bg/empty heart-sheet.png" id="1_kdjhy"]
+[ext_resource type="Script" uid="uid://bk3rybgdkq3au" path="res://health_bar.gd" id="1_srckl"]
 [ext_resource type="Texture2D" uid="uid://cjtmi4jnhmcib" path="res://Art/bg/heart-sheet.png" id="2_srckl"]
 
 [sub_resource type="Animation" id="Animation_kdjhy"]
@@ -41,6 +42,7 @@ _data = {
 
 [node name="Health bar" type="Node2D" unique_id=207832460]
 scale = Vector2(6, 6)
+script = ExtResource("1_srckl")
 
 [node name="hb" type="TextureProgressBar" parent="." unique_id=370183049]
 offset_right = 48.0
