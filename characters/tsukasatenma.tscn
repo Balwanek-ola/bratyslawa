@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bkcwivaibwac7"]
+
+[ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_f385f"]
+[ext_resource type="Texture2D" uid="uid://ba2xhpamqs71f" path="res://Art/creatures/sprite lay2 c dark.png" id="2_f385f"]
+[ext_resource type="Animation" uid="uid://7y4xl1f5moi" path="res://Art/die.res" id="3_7bsn8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxi7v"]
+atlas = ExtResource("2_f385f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bsn8"]
+atlas = ExtResource("2_f385f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hood2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxi7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bsn8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx684"]
+
+[sub_resource type="Animation" id="Animation_bx684"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1l81"]
+_data = {
+&"RESET": SubResource("Animation_bx684"),
+&"die": ExtResource("3_7bsn8")
+}
+
+[node name="badmovingnode" type="Node2D" unique_id=679656428]
+script = ExtResource("1_f385f")
+speedUP = 3
+
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=9474732]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hood2")
+animation = &"idle"
+frame_progress = 0.93755716
+
+[node name="enemy" type="Area2D" parent="." unique_id=712735339]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=2089528999]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_bx684")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=961568364]
+libraries/ = SubResource("AnimationLibrary_v1l81")
+
+[connection signal="body_entered" from="enemy" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="enemy" to="." method="_on_area_2d_body_exited"]
