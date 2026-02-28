@@ -49,7 +49,9 @@ func _on_tutorial_pressed() -> void:
 	$Mainbuttons/Button_Manager/Start/AudioStreamPlayer.play()
 
 	mainbuttons.visible = false
-	Tutorial2.visible = true
+	Tutorial2.visible = true 
+	Logo.visible = false
+	Logo2.visible = false
 
 
 func _on_button_pressed() -> void:
