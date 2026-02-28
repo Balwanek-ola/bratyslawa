@@ -282,7 +282,7 @@ tint_over = Color(0.35951212, 0.7271735, 0.6631097, 1)
 tint_progress = Color(0.90588236, 1, 0.58431375, 1)
 
 [node name="Health bar" parent="UI" unique_id=207832460 instance=ExtResource("11_kvuet")]
-position = Vector2(70, 170)
+position = Vector2(75, 196)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=2109286231]
 custom_minimum_size = Vector2(0, 200)
@@ -301,14 +301,12 @@ label_settings = SubResource("LabelSettings_lbhrr")
 vertical_alignment = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144875161]
-visible = false
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=1879092388 instance=ExtResource("11_dinhu")]
 process_mode = 3
 
 [node name="Death" type="CanvasLayer" parent="." unique_id=382662344]
 process_mode = 2
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Death" unique_id=699424228]
 offset_right = 1600.0

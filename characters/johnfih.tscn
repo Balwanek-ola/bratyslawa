@@ -71,6 +71,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_hood2")
 animation = &"idle"
 frame_progress = 0.13560733
+flip_h = true
 
 [node name="enemy" type="Area2D" parent="." unique_id=712735339]
 collision_layer = 2

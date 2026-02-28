@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dw5rumw661unl"]
 
 [ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_hlh0c"]
-[ext_resource type="Texture2D" uid="uid://dtb7f3y4trjax" path="res://Art/creatures/sprite lay 2 c.png" id="2_hlh0c"]
+[ext_resource type="Texture2D" uid="uid://o56bdvxjdeov" path="res://Art/creatures/sprite lay 2 c (1).png" id="2_hlh0c"]
 [ext_resource type="Animation" uid="uid://7y4xl1f5moi" path="res://Art/die.res" id="3_qc4pd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hlh0c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aldr"]
 atlas = ExtResource("2_hlh0c")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5aldr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc4pd"]
 atlas = ExtResource("2_hlh0c")
 region = Rect2(32, 0, 32, 32)
 
@@ -16,10 +16,10 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hlh0c")
+"texture": SubResource("AtlasTexture_5aldr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5aldr")
+"texture": SubResource("AtlasTexture_qc4pd")
 }],
 "loop": true,
 "name": &"idle",

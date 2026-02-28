@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://dmukjkcek4whs"]
 
 [ext_resource type="Script" uid="uid://h2koocrjkfa2" path="res://characters/badmovingnode.gd" id="1_70pkq"]
-[ext_resource type="Texture2D" uid="uid://bf2tp55086n11" path="res://Art/creatures/sprite swordfish.png" id="2_70pkq"]
+[ext_resource type="Texture2D" uid="uid://c7t135xa5ww5p" path="res://Art/creatures/sprite swordfish2 dark.png" id="2_24iyd"]
 [ext_resource type="Animation" uid="uid://7y4xl1f5moi" path="res://Art/die.res" id="3_55qnh"]
 [ext_resource type="Texture2D" uid="uid://bwwqv3j1dht8t" path="res://new_gradient_texture_2d.tres" id="4_24iyd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_55qnh"]
-atlas = ExtResource("2_70pkq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu1cv"]
+atlas = ExtResource("2_24iyd")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_24iyd"]
-atlas = ExtResource("2_70pkq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfllu"]
+atlas = ExtResource("2_24iyd")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hood2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_55qnh")
+"texture": SubResource("AtlasTexture_lu1cv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_24iyd")
+"texture": SubResource("AtlasTexture_sfllu")
 }],
 "loop": true,
 "name": &"idle",
