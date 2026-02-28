@@ -301,14 +301,12 @@ label_settings = SubResource("LabelSettings_lbhrr")
 vertical_alignment = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144875161]
-visible = false
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=1879092388 instance=ExtResource("11_dinhu")]
 process_mode = 3
 
 [node name="Death" type="CanvasLayer" parent="." unique_id=382662344]
 process_mode = 2
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Death" unique_id=699424228]
 offset_right = 1600.0
