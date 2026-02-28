@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cffj6syljm13m"]
 
-[ext_resource type="Texture2D" uid="uid://debii7vy8utpd" path="res://Art/our art/Sprite-0002.png" id="1_5b7ti"]
 [ext_resource type="Script" uid="uid://k8vkxsy3xnlo" path="res://main_menu.gd" id="1_dvdtt"]
+[ext_resource type="Texture2D" uid="uid://dqvft1y5idwow" path="res://Art/our art/fihbetter.png" id="2_mg4k4"]
 [ext_resource type="Texture2D" uid="uid://py47u4p2k2yg" path="res://Art/our art/new start.png" id="3_6viy2"]
 [ext_resource type="AudioStream" uid="uid://p5ej6d2ygtua" path="res://Art/kenney_space-shooter-redux/Bonus/sfx_shieldDown.ogg" id="3_i5qic"]
 [ext_resource type="Texture2D" uid="uid://djy1s4a0adgbd" path="res://Art/our art/new tutorial.png" id="4_4gws7"]
@@ -21,9 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://m0gw1gju5s4b" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exihovert.png" id="15_7c0qk"]
 [ext_resource type="Texture2D" uid="uid://x322i06f0uw8" path="res://Art/our art/drive-download-20260228T091033Z-1-001/tutorialclickl.png" id="15_mg4k4"]
 [ext_resource type="Texture2D" uid="uid://df06ym5tt5j2m" path="res://Art/our art/drive-download-20260228T091033Z-1-001/tutoriahoverl.png" id="16_d8rbn"]
+[ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="18_d8rbn"]
+[ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="22_50c28"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvdtt"]
-texture = ExtResource("1_5b7ti")
+texture = ExtResource("2_mg4k4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gteid"]
 texture = ExtResource("9_whf7w")
@@ -181,7 +183,6 @@ stream = ExtResource("5_whf7w")
 bus = &"SFX"
 
 [node name="Options" type="Panel" parent="." unique_id=1166316612]
-visible = false
 offset_left = 364.0
 offset_top = 62.0
 offset_right = 1151.0
@@ -189,11 +190,17 @@ offset_bottom = 880.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_gteid")
 
 [node name="Label" type="Label" parent="Options" unique_id=2074205032]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 63.0
-offset_right = 860.0
-offset_bottom = 128.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -476.0
+offset_top = 69.0
+offset_right = 104.0
+offset_bottom = 134.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.8039216, 0, 1, 1)
+theme_override_fonts/font = ExtResource("18_d8rbn")
 theme_override_font_sizes/font_size = 47
 text = "Options "
 
@@ -215,10 +222,10 @@ texture_normal = ExtResource("5_u78o4")
 
 [node name="AudioControl" type="HSlider" parent="Options" unique_id=1463308437]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 118.0
-offset_right = 669.0
-offset_bottom = 256.0
+offset_left = 237.0
+offset_top = 178.0
+offset_right = 615.0
+offset_bottom = 291.0
 theme_override_styles/slider = SubResource("StyleBoxLine_dvdtt")
 max_value = 1.0
 step = 0.05
@@ -228,26 +235,49 @@ audio_bus_name = "Music"
 
 [node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1875264340]
 layout_mode = 0
-offset_left = 174.99997
-offset_top = 347.0
-offset_right = 464.47263
-offset_bottom = 386.04938
+offset_left = 239.99997
+offset_top = 399.0
+offset_right = 511.00964
+offset_bottom = 447.0
 scale = Vector2(1.3505052, 1.4165586)
+theme_override_font_sizes/font_size = 29
 button_pressed = true
 text = "Fullscreen"
 script = ExtResource("4_12kdf")
 
 [node name="sfx" type="HSlider" parent="Options" unique_id=1293241125]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 239.0
-offset_right = 658.0
-offset_bottom = 274.0
+offset_left = 238.0
+offset_top = 328.0
+offset_right = 624.0
+offset_bottom = 363.0
 theme_override_styles/slider = SubResource("StyleBoxLine_bcalf")
 max_value = 1.0
 step = 0.05
 script = ExtResource("8_ht6vt")
 audio_bus_name = "SFX"
+
+[node name="Music" type="Label" parent="Options" unique_id=1148393639]
+layout_mode = 0
+offset_left = 355.00012
+offset_top = 153.99998
+offset_right = 454.00012
+offset_bottom = 202.99998
+scale = Vector2(1.2948064, 1.390166)
+theme_override_fonts/font = ExtResource("22_50c28")
+theme_override_font_sizes/font_size = 35
+text = "Music"
+
+[node name="SFX" type="Label" parent="Options" unique_id=1473844742]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 270.0
+offset_right = 433.0
+offset_bottom = 314.0
+scale = Vector2(1.3494929, 1.3602552)
+theme_override_fonts/font = ExtResource("22_50c28")
+theme_override_font_sizes/font_size = 35
+text = "SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=513918772]
 stream = SubResource("AudioStreamMP3_dvdtt")
@@ -266,10 +296,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_whf7w")
 
 [node name="Button" type="TextureButton" parent="Tutorial2" unique_id=1779938873]
 layout_mode = 0
-offset_left = 129.93521
-offset_top = 418.82928
-offset_right = 193.93521
-offset_bottom = 482.82928
+offset_left = 128.40656
+offset_top = 538.6081
+offset_right = 192.40656
+offset_bottom = 602.6081
 scale = Vector2(6.053319, 6.2424736)
 texture_normal = ExtResource("13_cq47v")
 texture_pressed = ExtResource("14_cq47v")
