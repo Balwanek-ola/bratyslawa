@@ -1,14 +1,50 @@
 [gd_scene format=3 uid="uid://1h4q28du6pot"]
 
 [ext_resource type="Script" uid="uid://hr7x8v6bakxv" path="res://characters/player.gd" id="1_3eadt"]
-[ext_resource type="Texture2D" uid="uid://deglgq2puim6c" path="res://icon.svg" id="1_dnjla"]
+[ext_resource type="Texture2D" uid="uid://cderyv6hxs2jo" path="res://Art/creatures/sprite glowna1-sheet.png" id="2_3eadt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eadt"]
-size = Vector2(101, 101)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tory2"]
+atlas = ExtResource("2_3eadt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0jl3"]
+atlas = ExtResource("2_3eadt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evndh"]
+atlas = ExtResource("2_3eadt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1q25"]
+atlas = ExtResource("2_3eadt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j31ep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tory2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0jl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evndh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1q25")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t23p"]
+radius = 30.0
 
 [sub_resource type="Gradient" id="Gradient_3eadt"]
-offsets = PackedFloat32Array(0.018072288, 0.41566265, 0.7108434)
-colors = PackedColorArray(1, 1, 0, 0.5176471, 1, 1, 0.4034101, 0.20255753, 1, 1, 0.6627451, 0)
+offsets = PackedFloat32Array(0.018072288, 0.7108434)
+colors = PackedColorArray(1, 1, 0, 0.3647059, 1, 1, 0.6627451, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tory2"]
 gradient = SubResource("Gradient_3eadt")
@@ -22,12 +58,13 @@ fill_to = Vector2(0, 0)
 collision_mask = 6
 script = ExtResource("1_3eadt")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=357839916]
-texture = ExtResource("1_dnjla")
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=688367245]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_j31ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1756113845]
 position = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_3eadt")
+shape = SubResource("CircleShape2D_6t23p")
 
 [node name="Light" type="Node2D" parent="." unique_id=649636491]
 
