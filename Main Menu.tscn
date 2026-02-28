@@ -166,13 +166,14 @@ value = 1.0
 script = ExtResource("3_i5qic")
 audio_bus_name = "Music"
 
-[node name="fullscreen_control" type="CheckButton" parent="Options" unique_id=1875264340]
+[node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1875264340]
 layout_mode = 0
 offset_left = 170.99997
 offset_top = 192.0
 offset_right = 460.47263
 offset_bottom = 231.0494
 scale = Vector2(1.3505052, 1.4165586)
+button_pressed = true
 text = "Fullscreen"
 script = ExtResource("4_12kdf")
 
@@ -187,4 +188,4 @@ bus = &"Music"
 [connection signal="pressed" from="Mainbuttons/Button_Manager/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="Options/fullscreen_control" to="Options/fullscreen_control" method="_on_toggled"]
+[connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
