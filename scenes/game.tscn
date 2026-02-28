@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dmukjkcek4whs" path="res://characters/swordfish.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://curdf2xxpxj7l" path="res://characters/light.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://bgyb4vwyv6yyx" path="res://Art/bg/map 2.png" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://c1pk64mkvi1p" path="res://Art/our art/ramka.png" id="8_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
 
 [sub_resource type="Animation" id="Animation_p57ef"]
 length = 0.001
@@ -122,9 +124,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
 font_size = 39
 
-[sub_resource type="LabelSettings" id="LabelSettings_iywne"]
-font_size = 46
-
 [node name="Game" type="Node2D" unique_id=2142069916]
 script = ExtResource("1_yqjtg")
 badthing = ExtResource("2_lnu2h")
@@ -161,7 +160,20 @@ libraries/ = SubResource("AnimationLibrary_lnu2h")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1979460724]
 
+[node name="Light" type="TextureProgressBar" parent="UI" unique_id=544196962]
+offset_left = 49.905
+offset_right = 1649.905
+offset_bottom = 32.0
+scale = Vector2(6, 6)
+max_value = 4.0
+value = 4.0
+texture_over = ExtResource("8_kvpfn")
+texture_progress = ExtResource("9_dinhu")
+tint_over = Color(0.35951212, 0.7271735, 0.6631097, 1)
+tint_progress = Color(0.90588236, 1, 0.58431375, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=2109286231]
+custom_minimum_size = Vector2(0, 200)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -170,16 +182,11 @@ grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="UI/VBoxContainer" unique_id=543094075]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 text = "depth:"
 label_settings = SubResource("LabelSettings_lbhrr")
-
-[node name="Label2" type="Label" parent="UI/VBoxContainer" unique_id=1278194429]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-text = "light:"
-label_settings = SubResource("LabelSettings_iywne")
+vertical_alignment = 2
 
 [node name="Death" type="CanvasLayer" parent="." unique_id=382662344]
 process_mode = 2

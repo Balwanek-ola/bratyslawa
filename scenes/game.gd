@@ -168,7 +168,7 @@ func depthcount():
 		
 func lightcount():
 	light += 1
-	$UI/VBoxContainer/Label2.text = "light: %s" %light
+	$UI/Light.value = light
 
 
 func _on_back_pressed() -> void:
