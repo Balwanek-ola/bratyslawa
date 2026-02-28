@@ -34,7 +34,14 @@ script = ExtResource("1_70pkq")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_hood2")
 animation = &"idle"
-frame_progress = 0.19363426
+frame_progress = 0.5130511
+flip_h = true
+
+[node name="Icon2" type="AnimatedSprite2D" parent="." unique_id=1260667504]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hood2")
+animation = &"idle"
+frame_progress = 0.38810202
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=712735339]

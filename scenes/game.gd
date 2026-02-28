@@ -28,6 +28,13 @@ func _process(delta: float) -> void:
 			if fish[i].position.x > 1800 or fish[i].position.x < -200:
 				fish[i].queue_free()
 				fishcount -= 1
+	fish = $sword.get_children()
+	if fish != null:
+		for i in range(fish.size()):
+			fish[i].position.y -= 120 * delta
+			if fish[i].position.x > 1800 or fish[i].position.x < -200:
+				fish[i].queue_free()
+				fishcount -= 1
 	var light = $light.get_children()
 	if light != null:
 		for i in range(light.size()):
@@ -44,6 +51,12 @@ func retry():
 	startlighting()
 	
 	var fish = $fish.get_children()
+	if fish != null:
+		for i in range(fish.size()):
+			fish[i].queue_free()
+			fishcount -= 1
+	
+	fish = $sword.get_children()
 	if fish != null:
 		for i in range(fish.size()):
 			fish[i].queue_free()
@@ -75,10 +88,23 @@ func spawnthings():
 	else:
 		newthing.direction = -1
 		newthing.position.x = 1700
+	
+	r = randi_range(0, 9)
+	ry = randi_range(0, 1)
+	newthing = swordfish.instantiate()
+	$sword.add_child(newthing)
+	fishcount += 1
+	newthing.position.y = positions[r]
+	if ry == 0:
+		newthing.direction = 1
+		newthing.position.x = -100
+	else:
+		newthing.direction = -1
+		newthing.position.x = 1700
 
 func startspawning():
 	while game:
-		if fishcount < 100:
+		if fishcount < depth/3 -1:
 			spawnthings()
 		await get_tree().create_timer(0.2).timeout
 
