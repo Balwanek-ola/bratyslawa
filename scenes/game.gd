@@ -64,6 +64,7 @@ func retry():
 	played2 = false
 	played3 = false
 	
+	
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):

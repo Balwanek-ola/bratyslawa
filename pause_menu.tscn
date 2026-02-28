@@ -4,14 +4,18 @@
 [ext_resource type="Shader" uid="uid://bkud30nu8v7jj" path="res://new_shader.gdshader" id="2_d3xb4"]
 [ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="3_mxa3g"]
 [ext_resource type="Texture2D" uid="uid://djsg11e1677jv" path="res://Art/our art/drive-download-20260228T091033Z-1-001/return.png" id="4_e8sti"]
+[ext_resource type="Texture2D" uid="uid://ytubx3k543na" path="res://Art/our art/drive-download-20260228T091033Z-1-001/returnclick.png" id="5_a32ks"]
 [ext_resource type="Texture2D" uid="uid://b7ns445xhbtha" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exit.png" id="5_q2yj1"]
+[ext_resource type="Texture2D" uid="uid://d0dx2b4p3ypmh" path="res://Art/our art/drive-download-20260228T091033Z-1-001/returnhover.png" id="6_g7dbl"]
+[ext_resource type="Texture2D" uid="uid://bn3afi6yeh3vi" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exitclick.png" id="8_lv42l"]
+[ext_resource type="Texture2D" uid="uid://m0gw1gju5s4b" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exihovert.png" id="9_ub45p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a32ks"]
 shader = ExtResource("2_d3xb4")
 shader_parameter/lod = 0.0
 
 [sub_resource type="Animation" id="Animation_g7dbl"]
-length = 0.001
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,12 +101,16 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0.045, 100.17)
 layout_mode = 2
 texture_normal = ExtResource("4_e8sti")
+texture_pressed = ExtResource("5_a32ks")
+texture_hover = ExtResource("6_g7dbl")
 stretch_mode = 0
 
 [node name="Main menu" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=463328697]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("5_q2yj1")
+texture_pressed = ExtResource("8_lv42l")
+texture_hover = ExtResource("9_ub45p")
 stretch_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1783788056]

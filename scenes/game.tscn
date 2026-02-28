@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cw0qii8grtkic" path="res://pause_menu.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://b35gxpcpo7ruf" path="res://health_bar.tscn" id="11_kvuet"]
+[ext_resource type="Texture2D" uid="uid://cfoj22t0t7sgs" path="res://Art/our art/drive-download-20260228T091033Z-1-001/death.png" id="13_ca42v"]
+[ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="14_rysoc"]
+[ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="15_ssvqc"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -293,37 +296,64 @@ text = "depth:"
 label_settings = SubResource("LabelSettings_lbhrr")
 vertical_alignment = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144875161]
+
+[node name="Pause menu" parent="CanvasLayer" unique_id=1879092388 instance=ExtResource("11_dinhu")]
+process_mode = 3
+
 [node name="Death" type="CanvasLayer" parent="." unique_id=382662344]
 process_mode = 2
-visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Death" unique_id=699424228]
+offset_right = 1600.0
+offset_bottom = 899.0
+texture = ExtResource("13_ca42v")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Death" unique_id=1284314371]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -58.0
+offset_right = -1.0
+offset_bottom = -143.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 47
 alignment = 1
 
 [node name="Label" type="Label" parent="Death/VBoxContainer" unique_id=1961958659]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "you died xd"
+theme_override_fonts/font = ExtResource("14_rysoc")
+theme_override_font_sizes/font_size = 162
+text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="back" type="Button" parent="Death/VBoxContainer" unique_id=80940432]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "back to menu"
+theme_override_fonts/font = ExtResource("15_ssvqc")
+theme_override_font_sizes/font_size = 59
+text = "Back to Menu"
 
 [node name="retry" type="Button" parent="Death/VBoxContainer" unique_id=586742683]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "retry now"
+theme_override_fonts/font = ExtResource("15_ssvqc")
+theme_override_font_sizes/font_size = 59
+text = "Retry"
 
-[node name="Pause menu" parent="." unique_id=1879092388 instance=ExtResource("11_dinhu")]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="Death" unique_id=1780748207]
+offset_right = 1645.0
+offset_bottom = 935.0
+color = Color(0.60933626, 0, 0.094872616, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Death" unique_id=385460783]
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=2068049000]
 visible = false
