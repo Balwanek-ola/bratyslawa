@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmukjkcek4whs" path="res://characters/swordfish.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://curdf2xxpxj7l" path="res://characters/light.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dw5rumw661unl" path="res://characters/sillydih.tscn" id="5_vtaks"]
-[ext_resource type="PackedScene" uid="uid://b1ns7cwtwckuo" path="res://characters/mareczek.tscn" id="6_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://cki5sxjsucmpk" path="res://characters/mareczek.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bkcwivaibwac7" path="res://characters/tsukasatenma.tscn" id="7_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://bgyb4vwyv6yyx" path="res://Art/bg/map 2.png" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://keb1au0pd7h3" path="res://characters/johnfih.tscn" id="8_264po"]
@@ -18,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://cfoj22t0t7sgs" path="res://Art/our art/drive-download-20260228T091033Z-1-001/death.png" id="13_ca42v"]
 [ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="14_rysoc"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="15_ssvqc"]
+[ext_resource type="Script" uid="uid://ber8jl6jpcef2" path="res://scenes/map_2.gd" id="19_264po"]
+[ext_resource type="Texture2D" uid="uid://bq3w6k5dmsdwh" path="res://Art/our art/drive-download-20260228T091033Z-1-001/map 3.png" id="20_5newe"]
+[ext_resource type="Script" uid="uid://rwjrxpsdr0lq" path="res://scenes/map_3.gd" id="21_37s47"]
+[ext_resource type="Texture2D" uid="uid://cdv7jijoqpwut" path="res://Art/our art/drive-download-20260228T091033Z-1-001/map 5.png" id="22_bt5mj"]
+[ext_resource type="Script" uid="uid://crsr3cuqqor5n" path="res://scenes/map_5.gd" id="23_e1j6l"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -208,6 +213,128 @@ fill_to = Vector2(0, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
 font_size = 39
 
+[sub_resource type="Animation" id="Animation_ssvqc"]
+resource_name = "BOAT"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kice"]
+_data = {
+&"BOAT": SubResource("Animation_ssvqc")
+}
+
+[sub_resource type="Animation" id="Animation_264po"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(258, 1716)]
+}
+
+[sub_resource type="Animation" id="Animation_1kice"]
+resource_name = "boat"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(258, 1716), Vector2(258, -1086)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5newe"]
+_data = {
+&"RESET": SubResource("Animation_264po"),
+&"boat": SubResource("Animation_1kice")
+}
+
+[sub_resource type="Animation" id="Animation_bt5mj"]
+resource_name = "Map3"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1435.0001, 2368), Vector2(1435.0001, -1654)]
+}
+
+[sub_resource type="Animation" id="Animation_e1j6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1435.0001, 2368)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pl11u"]
+_data = {
+&"Map3": SubResource("Animation_bt5mj"),
+&"RESET": SubResource("Animation_e1j6l")
+}
+
+[sub_resource type="Animation" id="Animation_pl11u"]
+resource_name = "Map5"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1453, 3085), Vector2(1453, -1431)]
+}
+
+[sub_resource type="Animation" id="Animation_bhx41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1453, 3085)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qnb83"]
+_data = {
+&"Map5": SubResource("Animation_pl11u"),
+&"RESET": SubResource("Animation_bhx41")
+}
+
 [node name="Game" type="Node2D" unique_id=2142069916]
 script = ExtResource("1_yqjtg")
 badthing = ExtResource("2_lnu2h")
@@ -289,6 +416,10 @@ custom_minimum_size = Vector2(0, 200)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = 28.0
+offset_right = -255.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -353,12 +484,36 @@ theme_override_font_sizes/font_size = 59
 text = "Retry"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Death" unique_id=385460783]
+libraries/ = SubResource("AnimationLibrary_1kice")
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=2068049000]
-visible = false
-position = Vector2(254, 692)
+position = Vector2(258, 1716)
 scale = Vector2(8, 8)
 texture = ExtResource("7_u5sy4")
+script = ExtResource("19_264po")
+
+[node name="boat" type="AnimationPlayer" parent="Map2" unique_id=177175560]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5newe")
+
+[node name="Map3" type="Sprite2D" parent="." unique_id=1977330727]
+position = Vector2(1435.0001, 2368)
+rotation = 2.8763292
+scale = Vector2(8.567856, -8.365466)
+texture = ExtResource("20_5newe")
+script = ExtResource("21_37s47")
+
+[node name="Map3" type="AnimationPlayer" parent="Map3" unique_id=50344375]
+libraries/ = SubResource("AnimationLibrary_pl11u")
+
+[node name="Map5" type="Sprite2D" parent="." unique_id=1128554171]
+position = Vector2(1453, 3085)
+scale = Vector2(7.043861, 7.043861)
+texture = ExtResource("22_bt5mj")
+script = ExtResource("23_e1j6l")
+
+[node name="Map5" type="AnimationPlayer" parent="Map5" unique_id=99170509]
+libraries/ = SubResource("AnimationLibrary_qnb83")
 
 [connection signal="area_entered" from="Player/ability" to="Player" method="_on_ability_area_entered"]
 [connection signal="area_exited" from="Player/ability" to="Player" method="_on_ability_area_exited"]

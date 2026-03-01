@@ -18,6 +18,11 @@ var maxFish = 20
 @export var tenma: PackedScene
 @export var johnfih: PackedScene
 
+
+@export var obstacle1: Sprite2D
+@export var obstacle2: Sprite2D
+@export var obstacle3: Sprite2D
+
 var currentfih1: PackedScene
 var currentfih2: PackedScene
 
@@ -27,6 +32,7 @@ var positions: Array
 func _ready() -> void:
 	generate_pos()
 	retry()
+	obstacles()
 	
 
 
@@ -216,3 +222,18 @@ func ability():
 				fishcount -= 1
 
 		
+func obstacles():
+	var obs
+	await get_tree().create_timer(10).timeout
+	var r = randi_range(0,2)
+	match r:
+		0:
+			obs = obstacle1
+		1:
+			obs = obstacle2
+		2:
+			obs = obstacle3
+	var tween = create_tween()
+	
+	tween.tween_property(obs,"position", Vector2(0,-100),10)
+	
