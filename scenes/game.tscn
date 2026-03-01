@@ -443,7 +443,7 @@ process_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Death" unique_id=699424228]
 offset_right = 1600.0
-offset_bottom = 899.0
+offset_bottom = 916.0
 texture = ExtResource("13_ca42v")
 expand_mode = 1
 

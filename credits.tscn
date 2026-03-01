@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://m0gw1gju5s4b" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exihovert.png" id="4_5em78"]
 [ext_resource type="AudioStream" uid="uid://tmbvkfed2s00" path="res://Art/our art/kittencatpuppydog88-endingelevator-152337.mp3" id="5_j6beo"]
 [ext_resource type="Texture2D" uid="uid://3prrg0e0x6bo" path="res://Art/our art/drive-download-20260228T091033Z-1-001/me.webp" id="6_r4875"]
-[ext_resource type="Texture2D" uid="uid://doh2jqcj6ikge" path="res://Art/our art/drive-download-20260228T091033Z-1-001/einstein.webp" id="7_g735x"]
+[ext_resource type="Texture2D" uid="uid://qyol8l273lhr" path="res://Art/our art/Spotlight.png" id="7_r4875"]
 [ext_resource type="Texture2D" uid="uid://ctlmgnvlwrbkr" path="res://Art/our art/drive-download-20260228T091033Z-1-001/267d4b1d741a83e45621e9cf41e6b6e5.webp" id="8_lnt0k"]
 [ext_resource type="Texture2D" uid="uid://db06f6mfu8ut4" path="res://Art/our art/drive-download-20260228T091033Z-1-001/latest.webp" id="9_604bw"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="10_0343s"]
@@ -15,7 +15,7 @@
 texture = ExtResource("6_r4875")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3w3uj"]
-texture = ExtResource("7_g735x")
+texture = ExtResource("7_r4875")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rle8t"]
 texture = ExtResource("8_lnt0k")
@@ -69,10 +69,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_eh8ii")
 
 [node name="Ola" type="Panel" parent="." unique_id=1552880564]
 layout_mode = 0
-offset_left = 727.00006
-offset_top = 359.00003
-offset_right = 931.00006
-offset_bottom = 549.0
+offset_left = 723.00006
+offset_top = 365.00003
+offset_right = 930.0523
+offset_bottom = 508.952
 scale = Vector2(0.98291314, 1.4310329)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3w3uj")
 
