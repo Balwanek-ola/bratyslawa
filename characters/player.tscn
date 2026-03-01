@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://hr7x8v6bakxv" path="res://characters/player.gd" id="1_3eadt"]
 [ext_resource type="Texture2D" uid="uid://cderyv6hxs2jo" path="res://Art/creatures/sprite glowna1-sheet.png" id="2_3eadt"]
-[ext_resource type="Texture2D" uid="uid://bwwqv3j1dht8t" path="res://new_gradient_texture_2d.tres" id="3_tory2"]
+[ext_resource type="Texture2D" uid="uid://cwwtnqhua24l1" path="res://Art/creatures/sprite glowna dead.png" id="2_x0jl3"]
+[ext_resource type="Texture2D" uid="uid://b3u6ia7pre6qp" path="res://new_gradient_texture_2d.tres" id="3_tory2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tory2"]
 atlas = ExtResource("2_3eadt")
@@ -22,6 +23,14 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j31ep"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x0jl3")
+}],
+"loop": true,
+"name": &"died",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tory2")
@@ -56,15 +65,106 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[node name="Player" type="CharacterBody2D" unique_id=1226060005]
+[sub_resource type="Animation" id="Animation_x0jl3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_evndh"]
+resource_name = "death"
+length = 0.615
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334),
+"transitions": PackedFloat32Array(0.3077861, 1.9318724, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_h1q25"]
+resource_name = "hit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.26666665, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(0.3077861, 1.9318724, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666665, 0.39999998, 0.73333335),
+"transitions": PackedFloat32Array(2.297397, 1.5691681, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.92877203, 0.09195443, 5.7756904e-07, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j31ep"]
+_data = {
+&"RESET": SubResource("Animation_x0jl3"),
+&"death": SubResource("Animation_evndh"),
+&"hit": SubResource("Animation_h1q25")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1226060005 node_paths=PackedStringArray("aniplay")]
 collision_mask = 14
 script = ExtResource("1_3eadt")
+aniplay = NodePath("AnimationPlayer")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=688367245]
+process_mode = 3
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j31ep")
-animation = &"idle"
-frame_progress = 0.96847045
+animation = &"died"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1756113845]
 position = Vector2(2, 1)
@@ -84,5 +184,9 @@ z_index = 1
 energy = 0.5
 texture = SubResource("GradientTexture2D_tory2")
 texture_scale = 6.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=989580145]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_j31ep")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

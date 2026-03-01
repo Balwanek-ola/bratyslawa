@@ -189,9 +189,10 @@ func depthcount():
 				currentfih1 = tenma
 				currentfih2 = johnfih
 				newlayer(60)
-		await get_tree().create_timer(0.3).timeout
-		depth += 1
-		$UI/depth.text = str(depth)
+		if get_tree().paused == false:
+			await get_tree().create_timer(0.3).timeout
+			depth += 1
+		$UI/depth.text = "%sm" %depth
 		
 func newlayer(newMax: int):
 	await get_tree().create_timer(5).timeout

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var game
 @export var lightnode: PointLight2D
 @export var HBar: Node2D
+@export var aniplay: AnimationPlayer
 
 const SPEED = 500.0
 var stop = false
@@ -10,8 +11,9 @@ var stop = false
 var health = 3
 var MxHealth = 3
 
+var immune = false
+
 func _ready() -> void:
-	HBar.setvalue(MxHealth)
 	$Icon.play("idle")
 	game = get_parent()
 
@@ -29,26 +31,40 @@ func _physics_process(delta: float) -> void:
 #			velocity*= 1.5
 #		elif input_vector.y -- -1:
 #			velocity*= 0.5
-	if input_vector != null:
-		if input_vector.x > 0:
-			$Icon.flip_h = true
-		elif input_vector.x < 0:
-			$Icon.flip_h = false
-		move_and_slide()
+		if input_vector != null:
+			if input_vector.x > 0:
+				$Icon.flip_h = true
+			elif input_vector.x < 0:
+				$Icon.flip_h = false
+			move_and_slide()
 
 func light():
 	if game != null:
 		game.lightcount()
 
 func hit():
-	health -= 1
-	HBar.setvalue(health)
-	if health == 0:
-		die()
+	if not immune:
+		immune = true
+		health -= 1
+		HBar.setvalue(health)
+		if health == 0:
+			die()
+		else:
+			aniplay.play("hit")
+			await get_tree().create_timer(0.8).timeout
+		immune = false
 	
 func die():
+	$Icon.play("died")
+	stop = true
+	get_tree().paused = true
 	var gamescene = get_parent()
+	gamescene.game = false
 	if gamescene != null and gamescene.name == "Game":
+		aniplay.play("death")
+		await get_tree().create_timer(1.2).timeout
+		get_tree().paused = false
+		$Icon.play("idle")
 		gamescene.die()
 
 
