@@ -86,7 +86,7 @@ scale = Vector2(4.9208016, -16.362808)
 shape = SubResource("RectangleShape2D_ouk20")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2019437772]
-position = Vector2(801.987, -38.9143)
+position = Vector2(802, -628)
 rotation = -3.1415925
 scale = Vector2(4.9208016, -16.362808)
 shape = SubResource("RectangleShape2D_mae5d")

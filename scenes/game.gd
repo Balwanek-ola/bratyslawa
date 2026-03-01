@@ -191,7 +191,7 @@ func depthcount():
 				newlayer(60)
 		await get_tree().create_timer(0.3).timeout
 		depth += 1
-		$UI/VBoxContainer/Label.text = "depth: %sm" %depth
+		$UI/depth.text = str(depth)
 		
 func newlayer(newMax: int):
 	await get_tree().create_timer(5).timeout
@@ -223,17 +223,32 @@ func ability():
 
 		
 func obstacles():
-	var obs
-	await get_tree().create_timer(10).timeout
-	var r = randi_range(0,2)
-	match r:
-		0:
-			obs = obstacle1
-		1:
-			obs = obstacle2
-		2:
-			obs = obstacle3
-	var tween = create_tween()
+	while game:
+		var obs
+		await get_tree().create_timer(5).timeout
+		var r = randi_range(0,2)
+		match r:
+			0:
+				obs = obstacle1
+			1:
+				obs = obstacle2
+			2:
+				obs = obstacle3
+		
+		var p = randi_range(0, 1)
+		match p:
+			0:
+				obs.position.x = -50
+				obs.flip_h = false
+			1:
+				obs.position.x = 1250
+				obs.flip_h = true
+		obs.position.y = 1200
+		var tween = create_tween()
+		tween.tween_property(obs,"position", Vector2(obs.position.x,- 500),3)
 	
-	tween.tween_property(obs,"position", Vector2(0,-100),10)
-	
+
+
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.name == "Player":
+		body.die()

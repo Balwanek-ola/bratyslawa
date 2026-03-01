@@ -18,11 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cfoj22t0t7sgs" path="res://Art/our art/drive-download-20260228T091033Z-1-001/death.png" id="13_ca42v"]
 [ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="14_rysoc"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="15_ssvqc"]
-[ext_resource type="Script" uid="uid://ber8jl6jpcef2" path="res://scenes/map_2.gd" id="19_264po"]
 [ext_resource type="Texture2D" uid="uid://bq3w6k5dmsdwh" path="res://Art/our art/drive-download-20260228T091033Z-1-001/map 3.png" id="20_5newe"]
-[ext_resource type="Script" uid="uid://rwjrxpsdr0lq" path="res://scenes/map_3.gd" id="21_37s47"]
 [ext_resource type="Texture2D" uid="uid://cdv7jijoqpwut" path="res://Art/our art/drive-download-20260228T091033Z-1-001/map 5.png" id="22_bt5mj"]
-[ext_resource type="Script" uid="uid://crsr3cuqqor5n" path="res://scenes/map_5.gd" id="23_e1j6l"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -210,9 +207,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
-font_size = 39
-
 [sub_resource type="Animation" id="Animation_ssvqc"]
 resource_name = "BOAT"
 
@@ -221,121 +215,7 @@ _data = {
 &"BOAT": SubResource("Animation_ssvqc")
 }
 
-[sub_resource type="Animation" id="Animation_264po"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Map2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(258, 1716)]
-}
-
-[sub_resource type="Animation" id="Animation_1kice"]
-resource_name = "boat"
-length = 20.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Map2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(258, 1716), Vector2(258, -1086)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5newe"]
-_data = {
-&"RESET": SubResource("Animation_264po"),
-&"boat": SubResource("Animation_1kice")
-}
-
-[sub_resource type="Animation" id="Animation_bt5mj"]
-resource_name = "Map3"
-length = 20.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 30),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1435.0001, 2368), Vector2(1435.0001, -1654)]
-}
-
-[sub_resource type="Animation" id="Animation_e1j6l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1435.0001, 2368)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pl11u"]
-_data = {
-&"Map3": SubResource("Animation_bt5mj"),
-&"RESET": SubResource("Animation_e1j6l")
-}
-
-[sub_resource type="Animation" id="Animation_pl11u"]
-resource_name = "Map5"
-length = 20.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1453, 3085), Vector2(1453, -1431)]
-}
-
-[sub_resource type="Animation" id="Animation_bhx41"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1453, 3085)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qnb83"]
-_data = {
-&"Map5": SubResource("Animation_pl11u"),
-&"RESET": SubResource("Animation_bhx41")
-}
-
-[node name="Game" type="Node2D" unique_id=2142069916]
+[node name="Game" type="Node2D" unique_id=2142069916 node_paths=PackedStringArray("obstacle1", "obstacle2", "obstacle3")]
 script = ExtResource("1_yqjtg")
 badthing = ExtResource("2_lnu2h")
 swordfish = ExtResource("3_p57ef")
@@ -344,11 +224,60 @@ sillydih = ExtResource("5_vtaks")
 mareczek = ExtResource("6_kvpfn")
 tenma = ExtResource("7_ssvqc")
 johnfih = ExtResource("8_264po")
+obstacle1 = NodePath("obst/Map2")
+obstacle2 = NodePath("obst/Map3")
+obstacle3 = NodePath("obst/Map5")
 
 [node name="Main" parent="." unique_id=495378431 instance=ExtResource("3_lbhrr")]
 
+[node name="Area2D" type="Area2D" parent="Main" unique_id=1670661485]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Main/Area2D" unique_id=241187373]
+position = Vector2(791.25, -546)
+polygon = PackedVector2Array(-800.25, 439, -74.25, 470, -80.25, 376, 104.75, 393, 112.75, 459, 874.75, 462, 871.75, 157, -796.25, 228)
+
 [node name="entry" type="AnimationPlayer" parent="." unique_id=609823631]
 libraries/ = SubResource("AnimationLibrary_lnu2h")
+
+[node name="obst" type="Node2D" parent="." unique_id=256169779]
+
+[node name="Map2" type="Sprite2D" parent="obst" unique_id=2068049000]
+position = Vector2(312, 2372)
+scale = Vector2(8, 8)
+texture = ExtResource("7_u5sy4")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obst/Map2" unique_id=1384599403]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst/Map2/StaticBody2D" unique_id=1148660246]
+polygon = PackedVector2Array(0.25, 63.75, 15.625, 61.375, 42.375, 46.625, 50.875, 32.125, 49.375, 6.25, 13.75, 17.625, 0.125, 0)
+
+[node name="Map3" type="Sprite2D" parent="obst" unique_id=1977330727]
+position = Vector2(1139.7617, 2361.2095)
+rotation = 2.8763292
+scale = Vector2(-8.5, -8.5)
+texture = ExtResource("20_5newe")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obst/Map3" unique_id=1448187314]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst/Map3/StaticBody2D" unique_id=1759159762]
+polygon = PackedVector2Array(19.982117, 45.024017, -0.73887634, 1.4804993, 22.167404, 42.81372, 37.639954, 48.236237, 48.424736, 39.950226, 39.083496, 26.318634, 27.767746, 29.827728, 37.28002, 18.148285, 51.598335, 35.448303, 49.688736, 45.170074, 35.632515, 52.933014)
+
+[node name="Map5" type="Sprite2D" parent="obst" unique_id=1128554171]
+position = Vector2(782, 2550)
+scale = Vector2(-7, 7)
+texture = ExtResource("22_bt5mj")
+centered = false
+offset = Vector2(-65, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obst/Map5" unique_id=1544293137]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst/Map5/StaticBody2D" unique_id=880383599]
+polygon = PackedVector2Array(-0.5714264, 5.4285583, -2.1428604, 19.285706, -32.285706, 38.714264, -33.428574, 49.142853, -9.571426, 49.42856, -11, 53.42856, -48.857147, 52.285706, -50.285706, 21, -44.857147, 24.285706, -44.71428, 38.57141, -33.71428, 35, -16.571426, 19.857117, -6.4285736, 6.2857056)
 
 [node name="shade" type="ColorRect" parent="." unique_id=1753139240]
 material = SubResource("CanvasItemMaterial_vtaks")
@@ -411,33 +340,21 @@ tint_progress = Color(0.90588236, 1, 0.58431375, 1)
 [node name="Health bar" parent="UI" unique_id=207832460 instance=ExtResource("11_kvuet")]
 position = Vector2(70, 170)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=2109286231]
-custom_minimum_size = Vector2(0, 200)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -255.0
-offset_top = 28.0
-offset_right = -255.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-
-[node name="Label" type="Label" parent="UI/VBoxContainer" unique_id=543094075]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-text = "depth:"
-label_settings = SubResource("LabelSettings_lbhrr")
-vertical_alignment = 2
+[node name="depth" type="Label" parent="UI" unique_id=1167819358]
+offset_left = 69.0
+offset_top = 271.0
+offset_right = 109.0
+offset_bottom = 294.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144875161]
+visible = false
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=1879092388 instance=ExtResource("11_dinhu")]
 process_mode = 3
 
 [node name="Death" type="CanvasLayer" parent="." unique_id=382662344]
 process_mode = 2
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Death" unique_id=699424228]
 offset_right = 1600.0
@@ -486,35 +403,7 @@ text = "Retry"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Death" unique_id=385460783]
 libraries/ = SubResource("AnimationLibrary_1kice")
 
-[node name="Map2" type="Sprite2D" parent="." unique_id=2068049000]
-position = Vector2(258, 1716)
-scale = Vector2(8, 8)
-texture = ExtResource("7_u5sy4")
-script = ExtResource("19_264po")
-
-[node name="boat" type="AnimationPlayer" parent="Map2" unique_id=177175560]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_5newe")
-
-[node name="Map3" type="Sprite2D" parent="." unique_id=1977330727]
-position = Vector2(1435.0001, 2368)
-rotation = 2.8763292
-scale = Vector2(8.567856, -8.365466)
-texture = ExtResource("20_5newe")
-script = ExtResource("21_37s47")
-
-[node name="Map3" type="AnimationPlayer" parent="Map3" unique_id=50344375]
-libraries/ = SubResource("AnimationLibrary_pl11u")
-
-[node name="Map5" type="Sprite2D" parent="." unique_id=1128554171]
-position = Vector2(1453, 3085)
-scale = Vector2(7.043861, 7.043861)
-texture = ExtResource("22_bt5mj")
-script = ExtResource("23_e1j6l")
-
-[node name="Map5" type="AnimationPlayer" parent="Map5" unique_id=99170509]
-libraries/ = SubResource("AnimationLibrary_qnb83")
-
+[connection signal="body_shape_entered" from="Main/Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="area_entered" from="Player/ability" to="Player" method="_on_ability_area_entered"]
 [connection signal="area_exited" from="Player/ability" to="Player" method="_on_ability_area_exited"]
 [connection signal="pressed" from="Death/VBoxContainer/back" to="." method="_on_back_pressed"]
