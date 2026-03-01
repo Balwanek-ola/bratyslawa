@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba1ig485bb5to"
+path="res://.godot/imported/kittencatpuppydog88-endingelevator-152337.mp3-2dac2ca2a020a2906b545428cd2efedc.mp3str"
+
+[deps]
+
+source_file="res://Art/our art/drive-download-20260228T091033Z-1-001/kittencatpuppydog88-endingelevator-152337.mp3"
+dest_files=["res://.godot/imported/kittencatpuppydog88-endingelevator-152337.mp3-2dac2ca2a020a2906b545428cd2efedc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

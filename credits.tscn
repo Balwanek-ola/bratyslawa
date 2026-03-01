@@ -1,9 +1,29 @@
-[gd_scene format=3 uid="uid://duivwsbgcn2ah"]
+[gd_scene format=3 uid="uid://c4chovicq7vta"]
 
 [ext_resource type="Script" uid="uid://c585et2t6kn3b" path="res://credits.gd" id="1_pjc1l"]
 [ext_resource type="Texture2D" uid="uid://b7ns445xhbtha" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exit.png" id="2_j6beo"]
 [ext_resource type="Texture2D" uid="uid://bn3afi6yeh3vi" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exitclick.png" id="3_4av4j"]
 [ext_resource type="Texture2D" uid="uid://m0gw1gju5s4b" path="res://Art/our art/drive-download-20260228T091033Z-1-001/exihovert.png" id="4_5em78"]
+[ext_resource type="AudioStream" uid="uid://tmbvkfed2s00" path="res://Art/our art/kittencatpuppydog88-endingelevator-152337.mp3" id="5_j6beo"]
+[ext_resource type="Texture2D" uid="uid://3prrg0e0x6bo" path="res://Art/our art/drive-download-20260228T091033Z-1-001/me.webp" id="6_r4875"]
+[ext_resource type="Texture2D" uid="uid://doh2jqcj6ikge" path="res://Art/our art/drive-download-20260228T091033Z-1-001/einstein.webp" id="7_g735x"]
+[ext_resource type="Texture2D" uid="uid://ctlmgnvlwrbkr" path="res://Art/our art/drive-download-20260228T091033Z-1-001/267d4b1d741a83e45621e9cf41e6b6e5.webp" id="8_lnt0k"]
+[ext_resource type="Texture2D" uid="uid://db06f6mfu8ut4" path="res://Art/our art/drive-download-20260228T091033Z-1-001/latest.webp" id="9_604bw"]
+[ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="10_0343s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eh8ii"]
+texture = ExtResource("6_r4875")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3w3uj"]
+texture = ExtResource("7_g735x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rle8t"]
+texture = ExtResource("8_lnt0k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xcmwb"]
+texture = ExtResource("9_604bw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fa2y2"]
 
 [node name="credits" type="Control" unique_id=1355323096]
 layout_mode = 3
@@ -33,5 +53,85 @@ texture_normal = ExtResource("2_j6beo")
 texture_pressed = ExtResource("3_4av4j")
 texture_hover = ExtResource("4_5em78")
 stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=702719364]
+stream = ExtResource("5_j6beo")
+bus = &"Music"
+
+[node name="Iza" type="Panel" parent="." unique_id=1339075272]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 381.00003
+offset_right = 309.0
+offset_bottom = 571.0
+scale = Vector2(2.3086343, 1.4457799)
+theme_override_styles/panel = SubResource("StyleBoxTexture_eh8ii")
+
+[node name="Ola" type="Panel" parent="." unique_id=1552880564]
+layout_mode = 0
+offset_left = 727.00006
+offset_top = 359.00003
+offset_right = 931.00006
+offset_bottom = 549.0
+scale = Vector2(0.98291314, 1.4310329)
+theme_override_styles/panel = SubResource("StyleBoxTexture_3w3uj")
+
+[node name="Yukka" type="Panel" parent="." unique_id=243670499]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 96.0
+offset_right = 926.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rle8t")
+
+[node name="Sal" type="Panel" parent="." unique_id=1718096207]
+layout_mode = 0
+offset_left = 91.00001
+offset_top = 25.0
+offset_right = 295.0
+offset_bottom = 215.0
+scale = Vector2(1.1401644, 1.5042204)
+theme_override_styles/panel = SubResource("StyleBoxTexture_xcmwb")
+
+[node name="Label" type="Label" parent="." unique_id=695976673]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 138.0
+offset_right = 498.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("10_0343s")
+theme_override_font_sizes/font_size = 37
+text = "Sal"
+
+[node name="Label2" type="Label" parent="." unique_id=1570951108]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 466.0
+offset_right = 1217.0
+offset_bottom = 519.0
+theme_override_fonts/font = ExtResource("10_0343s")
+theme_override_font_sizes/font_size = 37
+text = "Snowman"
+
+[node name="Label3" type="Label" parent="." unique_id=1234538109]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 468.0
+offset_right = 581.0
+offset_bottom = 521.0
+theme_override_fonts/font = ExtResource("10_0343s")
+theme_override_font_sizes/font_size = 37
+text = "Iza"
+
+[node name="Label4" type="Label" parent="." unique_id=557416833]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 143.0
+offset_right = 1230.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("10_0343s")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxTexture_fa2y2")
+text = "Yukka"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
