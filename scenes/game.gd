@@ -33,8 +33,9 @@ func _ready() -> void:
 	generate_pos()
 	retry()
 	obstacles()
-	
 
+func _on_start_pressed() -> void:
+		$GameBG.play
 
 func _physics_process(delta: float) -> void:
 	var fish = $fish.get_children()
