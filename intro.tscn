@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dibuxgwotaotm"]
 
-[ext_resource type="Script" uid="uid://cc5pje8cu6v84" path="res://intro.gd" id="1_7a8ye"]
+[ext_resource type="Script" path="res://intro.gd" id="1_7a8ye"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="2_0a7ni"]
 [ext_resource type="Texture2D" uid="uid://cg4c0v6i0usec" path="res://Art/our art/drive-download-20260228T091033Z-1-001/dervopol8157.png" id="3_y72e6"]
 [ext_resource type="AudioStream" uid="uid://bxth4dc60f7we" path="res://intro (mp3cut.net).mp3" id="4_0a7ni"]
@@ -111,7 +111,7 @@ offset_right = 980.0
 offset_bottom = 689.0
 theme_override_fonts/font = ExtResource("2_0a7ni")
 theme_override_font_sizes/font_size = 42
-text = "And friend ;3"
+text = "And Yukka ;3"
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1503657060]

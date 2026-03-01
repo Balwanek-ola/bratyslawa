@@ -158,6 +158,7 @@ func die():
 		SaveLoad.high_score = depth
 		SaveLoad._save()
 	$Death.visible = true
+	$Death/score.text = "Score: %s m" %depth
 	get_tree().paused = true
 	game = false
 
@@ -214,7 +215,7 @@ func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Main Menu.tscn")
 
 func ability():
-	%Hit.play()
+	$ability2.play()
 	$ability.play("flash")
 	var fish = $fish.get_children()
 	if fish != null:

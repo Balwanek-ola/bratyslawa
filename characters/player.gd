@@ -55,7 +55,7 @@ func light():
 		game.lightcount()
 
 func hit():
-	
+	%Hit.play()
 	if not immune:
 		immune = true
 		health -= 1

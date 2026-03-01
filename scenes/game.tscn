@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://keb1au0pd7h3" path="res://characters/johnfih.tscn" id="8_264po"]
 [ext_resource type="Texture2D" uid="uid://c1pk64mkvi1p" path="res://Art/our art/ramka.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
-[ext_resource type="PackedScene" uid="uid://cw0qii8grtkic" path="res://pause_menu.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://b35gxpcpo7ruf" path="res://health_bar.tscn" id="11_kvuet"]
 [ext_resource type="Texture2D" uid="uid://b6x8nndo385m2" path="res://Art/pasek.png" id="13_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://cfoj22t0t7sgs" path="res://Art/our art/drive-download-20260228T091033Z-1-001/death.png" id="13_ca42v"]
@@ -24,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cdv7jijoqpwut" path="res://Art/our art/drive-download-20260228T091033Z-1-001/map 5.png" id="22_bt5mj"]
 [ext_resource type="Script" uid="uid://0r014ca0gxtq" path="res://scenes/game_bg.gd" id="22_e1j6l"]
 [ext_resource type="AudioStream" uid="uid://cyjeejmyh7tb3" path="res://Art/floraphonic-metal-hit-94-200422.mp3" id="24_e1j6l"]
+[ext_resource type="AudioStream" uid="uid://ujdel8uts1xu" path="res://Art/creatures/universfield-cartoon-wet-hit-352447.mp3" id="24_pl11u"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -435,19 +435,29 @@ text = "67 m
 "
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144875161]
-
-[node name="Pause menu" parent="CanvasLayer" unique_id=1879092388 instance=ExtResource("11_dinhu")]
 process_mode = 3
+visible = false
 
 [node name="Death" type="CanvasLayer" parent="." unique_id=382662344]
 process_mode = 2
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Death" unique_id=699424228]
 offset_right = 1600.0
 offset_bottom = 899.0
 texture = ExtResource("13_ca42v")
 expand_mode = 1
+
+[node name="score" type="Label" parent="Death" unique_id=719919611]
+custom_minimum_size = Vector2(0, 100)
+offset_left = -1.0
+offset_top = 257.0
+offset_right = 1599.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("15_ssvqc")
+theme_override_font_sizes/font_size = 48
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Death" unique_id=1284314371]
 anchors_preset = 15
@@ -459,12 +469,14 @@ offset_right = -1.0
 offset_bottom = -143.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 47
 alignment = 1
 
 [node name="Label" type="Label" parent="Death/VBoxContainer" unique_id=1961958659]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("14_rysoc")
 theme_override_font_sizes/font_size = 162
 text = "YOU DIED"
@@ -491,13 +503,20 @@ text = "Retry"
 libraries/ = SubResource("AnimationLibrary_1kice")
 
 [node name="GameBG" type="AudioStreamPlayer" parent="." unique_id=2042532656]
+process_mode = 3
 stream = ExtResource("21_37s47")
 bus = &"Music"
 script = ExtResource("22_e1j6l")
 
+[node name="ability2" type="AudioStreamPlayer" parent="." unique_id=1523011248]
+stream = ExtResource("24_pl11u")
+bus = &"SFX"
+
 [node name="Hit" type="AudioStreamPlayer" parent="." unique_id=380067056]
 unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("24_e1j6l")
+volume_db = -30.0
 bus = &"SFX"
 
 [node name="ability" type="AnimationPlayer" parent="." unique_id=1835597534]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw0qii8grtkic"]
 
 [ext_resource type="Script" uid="uid://dyqqneq3byyx5" path="res://pause_menu.gd" id="1_2nc7s"]
-[ext_resource type="Shader" uid="uid://bkud30nu8v7jj" path="res://new_shader.gdshader" id="2_d3xb4"]
+[ext_resource type="Shader" path="res://new_shader.gdshader" id="2_d3xb4"]
 [ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="3_mxa3g"]
 [ext_resource type="Texture2D" uid="uid://djsg11e1677jv" path="res://Art/our art/drive-download-20260228T091033Z-1-001/return.png" id="4_e8sti"]
 [ext_resource type="Texture2D" uid="uid://ytubx3k543na" path="res://Art/our art/drive-download-20260228T091033Z-1-001/returnclick.png" id="5_a32ks"]
