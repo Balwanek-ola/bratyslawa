@@ -40,9 +40,22 @@ func _physics_process(delta: float) -> void:
 
 func light():
 	if game != null:
+		match game.light:
+			0: 
+				lightnode.texture_scale = 1
+			1:
+				lightnode.texture_scale = 1.5
+			2:
+				lightnode.texture_scale = 2
+			3:
+				lightnode.texture_scale = 3
+			4:
+				lightnode.texture_scale = 4
+				
 		game.lightcount()
 
 func hit():
+	
 	if not immune:
 		immune = true
 		health -= 1

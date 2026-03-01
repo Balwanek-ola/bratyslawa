@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dujw72nt5444e" path="res://Art/our art/ramka3.png" id="9_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cw0qii8grtkic" path="res://pause_menu.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://b35gxpcpo7ruf" path="res://health_bar.tscn" id="11_kvuet"]
+[ext_resource type="Texture2D" uid="uid://b6x8nndo385m2" path="res://Art/pasek.png" id="13_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://cfoj22t0t7sgs" path="res://Art/our art/drive-download-20260228T091033Z-1-001/death.png" id="13_ca42v"]
 [ext_resource type="FontFile" uid="uid://ckv4jm42qy6tx" path="res://Art/our art/drive-download-20260228T091033Z-1-001/pixelout/Pixelout Personal Use Only.ttf" id="14_rysoc"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="15_ssvqc"]
@@ -22,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://3lr0cneusnc" path="res://Art/creatures/bensound-deepblue.mp3" id="21_37s47"]
 [ext_resource type="Texture2D" uid="uid://cdv7jijoqpwut" path="res://Art/our art/drive-download-20260228T091033Z-1-001/map 5.png" id="22_bt5mj"]
 [ext_resource type="Script" uid="uid://0r014ca0gxtq" path="res://scenes/game_bg.gd" id="22_e1j6l"]
+[ext_resource type="AudioStream" uid="uid://cyjeejmyh7tb3" path="res://Art/floraphonic-metal-hit-94-200422.mp3" id="24_e1j6l"]
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -209,12 +211,59 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Gradient" id="Gradient_37s47"]
+offsets = PackedFloat32Array(0.19879518, 0.75301206)
+colors = PackedColorArray(0.85, 0.8395167, 0.5355, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bt5mj"]
+gradient = SubResource("Gradient_37s47")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Animation" id="Animation_ssvqc"]
 resource_name = "BOAT"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1kice"]
 _data = {
 &"BOAT": SubResource("Animation_ssvqc")
+}
+
+[sub_resource type="Animation" id="Animation_37s47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bt5mj"]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.19826604, 0.33333334, 0.4575953),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.7647059), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1j6l"]
+_data = {
+&"RESET": SubResource("Animation_37s47"),
+&"flash": SubResource("Animation_bt5mj")
 }
 
 [node name="Game" type="Node2D" unique_id=2142069916 node_paths=PackedStringArray("obstacle1", "obstacle2", "obstacle3")]
@@ -308,6 +357,23 @@ texture = SubResource("GradientTexture2D_kvpfn")
 root_node = NodePath("../entry")
 libraries/ = SubResource("AnimationLibrary_vtaks")
 
+[node name="deptline" type="Node2D" parent="." unique_id=1907402901]
+position = Vector2(0, -100)
+
+[node name="Pasek" type="Sprite2D" parent="deptline" unique_id=1517803633]
+position = Vector2(800, -279)
+scale = Vector2(4, 4)
+texture = ExtResource("13_bt5mj")
+
+[node name="Label" type="Label" parent="deptline" unique_id=1536467720]
+offset_left = 1409.0
+offset_top = 9.0
+offset_right = 1525.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("15_ssvqc")
+theme_override_font_sizes/font_size = 48
+text = "123 m"
+
 [node name="Player" parent="." unique_id=1226060005 node_paths=PackedStringArray("lightnode", "HBar") instance=ExtResource("1_uwrxv")]
 position = Vector2(800, -100)
 lightnode = NodePath("PointLight2D3")
@@ -324,6 +390,22 @@ debug_color = Color(0.6133603, 0.36003596, 1, 0.41960785)
 z_index = 1
 texture = SubResource("GradientTexture2D_vtaks")
 texture_scale = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="Player" unique_id=2037690456]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bt5mj")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1979460724]
 
@@ -349,7 +431,7 @@ offset_right = 109.0
 offset_bottom = 294.0
 theme_override_fonts/font = ExtResource("15_ssvqc")
 theme_override_font_sizes/font_size = 57
-text = "67
+text = "67 m
 "
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144875161]
@@ -412,6 +494,15 @@ libraries/ = SubResource("AnimationLibrary_1kice")
 stream = ExtResource("21_37s47")
 bus = &"Music"
 script = ExtResource("22_e1j6l")
+
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=380067056]
+unique_name_in_owner = true
+stream = ExtResource("24_e1j6l")
+bus = &"SFX"
+
+[node name="ability" type="AnimationPlayer" parent="." unique_id=1835597534]
+root_node = NodePath("../fader")
+libraries/ = SubResource("AnimationLibrary_e1j6l")
 
 [connection signal="body_shape_entered" from="Main/Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="area_entered" from="Player/ability" to="Player" method="_on_ability_area_entered"]

@@ -34,8 +34,7 @@ func _ready() -> void:
 	retry()
 	obstacles()
 
-func _on_start_pressed() -> void:
-		$GameBG.play
+
 
 func _physics_process(delta: float) -> void:
 	var fish = $fish.get_children()
@@ -193,7 +192,12 @@ func depthcount():
 		if get_tree().paused == false:
 			await get_tree().create_timer(0.3).timeout
 			depth += 1
-		$UI/depth.text = "%sm" %depth
+		if depth%100 == 95:
+			$deptline.position.y = 1200
+			var tween = create_tween()
+			tween.tween_property($deptline,"position", Vector2($deptline.position.x,- 100),1.7)
+			$deptline/Label.text = "%s m" %(depth+5)
+		$UI/depth.text = "%s m" %depth
 		
 func newlayer(newMax: int):
 	await get_tree().create_timer(5).timeout
@@ -210,6 +214,8 @@ func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Main Menu.tscn")
 
 func ability():
+	%Hit.play()
+	$ability.play("flash")
 	var fish = $fish.get_children()
 	if fish != null:
 		for i in range(fish.size()):
@@ -222,12 +228,14 @@ func ability():
 			if fish[i].inAbility:
 				fish[i].die()
 				fishcount -= 1
+				
+	$UI/Light.value = light
 
 		
 func obstacles():
 	while game:
 		var obs
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(10).timeout
 		var r = randi_range(0,2)
 		match r:
 			0:
@@ -247,7 +255,7 @@ func obstacles():
 				obs.flip_h = true
 		obs.position.y = 1200
 		var tween = create_tween()
-		tween.tween_property(obs,"position", Vector2(obs.position.x,- 500),3)
+		tween.tween_property(obs,"position", Vector2(obs.position.x,- 500),5)
 	
 
 
