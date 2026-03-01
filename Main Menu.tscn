@@ -363,7 +363,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6548131, 0.6286614)
 theme_override_fonts/font = ExtResource("22_50c28")
-theme_override_font_sizes/font_size = 49
+theme_override_font_sizes/font_size = 44
 text = "Avoid the other fish! 
 Use WASD to escape!
 Besides other fish, you’ll
@@ -372,7 +372,7 @@ Besides other fish, you’ll
 The deeper you go, the less
  light breaks through the surface. 
 Bright light scares the other fish. 
-Eat the bits to recharge the glow inside you, and use it to your advantage.
+Eat the bits to recharge the glow inside you. Press SPACE to shine a bright light, and use it to your advantage.
 "
 horizontal_alignment = 1
 autowrap_mode = 2

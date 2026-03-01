@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dibuxgwotaotm"]
 
-[ext_resource type="Script" path="res://intro.gd" id="1_7a8ye"]
+[ext_resource type="Script" uid="uid://cc5pje8cu6v84" path="res://intro.gd" id="1_7a8ye"]
 [ext_resource type="FontFile" uid="uid://dltawdaytaf44" path="res://Art/our art/pixelate_2/Pixelate-Regular.ttf" id="2_0a7ni"]
 [ext_resource type="Texture2D" uid="uid://cg4c0v6i0usec" path="res://Art/our art/drive-download-20260228T091033Z-1-001/dervopol8157.png" id="3_y72e6"]
-[ext_resource type="AudioStream" uid="uid://bxth4dc60f7we" path="res://intro (mp3cut.net).mp3" id="4_0a7ni"]
 
 [sub_resource type="Animation" id="Animation_u2rf6"]
 length = 0.001
@@ -121,7 +120,3 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1511016352]
 libraries/ = SubResource("AnimationLibrary_dk2oa")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=710854080]
-stream = ExtResource("4_0a7ni")
-bus = &"Music"
